@@ -1,0 +1,22 @@
+{
+  "name": "Samm Sa Gox — Intelligence Territoriale",
+  "short_name": "Samm Sa Gox",
+  "description": "Diagnostic territorial de chaque commune du Senegal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#B7472A",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

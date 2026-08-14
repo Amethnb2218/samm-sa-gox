@@ -1,0 +1,1542 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 1754
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.392 g
+56.6929133858267775 742.6774015748030706 Td
+(CHALLENGE 20 ANS ANSD — HACKATHON 2026) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.392 g
+56.6929133858267775 722.8348818897637784 Td
+(Presentation du projet) Tj
+ET
+BT
+/F2 32 Tf
+36.7999999999999972 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 643.4648031496062686 Td
+(Samm Sa Gox) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.102 g
+56.6929133858267775 609.4490551181102092 Td
+(Intelligence Territoriale Citoyenne) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 558.42543307086612 Td
+(Diagnostic territorial automatique de chaque region et departement du Senegal.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 539.1498425196850803 Td
+(Analyse des ecarts aux normes internationales \(OMS, UNESCO, ODD\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 519.8742519685039269 Td
+(Score d'opportunite entrepreneuriale par territoire.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 500.5986614173228304 Td
+(Simulateur d'impact des investissements publics.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 481.3230708661417339 Td
+(Generateur de documents PDC prets pour la prefecture.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 462.0474803149605805 Td
+(Bilingue wolof/francais. Offline. Zero serveur. Zero cout.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.588 g
+56.6929133858267775 90.7088976377951894 Td
+(Aout 2026) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.588 g
+56.6929133858267775 73.7010236220471597 Td
+(Application web : samm-sa-gox.vercel.app) Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 1/8) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 2623
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 785.1970866141732586 Td
+(LE PROBLEME) Tj
+ET
+0.86 0.86 0.85 RG
+56.6929133858267775 748.346692913385823 m
+538.5826771653544256 748.346692913385823 l
+S
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 734.1734645669291695 Td
+(1. Les donnees existent mais sont inaccessibles) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 717.1655905511811397 Td
+(L'ANSD est champion africain de la production statistique \(score SPI 81.4/100\). Mais son site web est en) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 703.559291338582625 Td
+(panne \(certificat SSL invalide\), ses plateformes de diffusion \(ANADS, Open Data\) sont hors service, et toutes) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 689.952992125984224 Td
+(les publications sont en PDF non exploitable.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 670.6774015748031843 Td
+(2. Zero interface en langues nationales) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 653.6695275590550409 Td
+(88% des Senegalais parlent wolof. 100% des statistiques publiques sont en francais technique. Les) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 640.0632283464567536 Td
+(conseillers municipaux, les journalistes radio, les citoyens sont exclus.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 620.7876377952756002 Td
+(3. Les elus n'ont pas d'outils) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 603.7797637795275705 Td
+(Chaque commune doit produire un Plan de Developpement Communal \(PDC\) avec diagnostic statistique.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 590.1734645669291695 Td
+(Cout actuel : 2-5 millions FCFA de consultant + 3 mois d'attente. Pour 559 communes, c'est 1 a 2.8 milliards) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 576.5671653543306547 Td
+(FCFA de depenses evitables.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 557.291574803149615 Td
+(4. Les entrepreneurs naviguent a l'aveugle) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 540.2837007874015853 Td
+(Aucun outil ne permet de connaitre le potentiel economique d'un territoire : densite de population, pouvoir) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 526.6774015748031843 Td
+(d'achat, infrastructures, lacunes en services. L'information existe mais est emprisonnee.) Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 2/8) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 3941
+>>
+stream
+0.5670000000000001 w
+0.86 0.86 0.85 RG
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 785.1970866141732586 Td
+(LA SOLUTION : SAMM SA GOX) Tj
+ET
+0.86 0.86 0.85 RG
+56.6929133858267775 748.346692913385823 m
+538.5826771653544256 748.346692913385823 l
+S
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 734.1734645669291695 Td
+(Samm Sa Gox transforme 20 ans de donnees ANSD en intelligence territoriale actionnable. Ce n'est PAS un) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 720.5671653543306547 Td
+(dashboard. C'est un outil de decision.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.102 g
+56.6929133858267775 692.7876377952756002 Td
+(6 modules integres :) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 664.4411811023621794 Td
+(Module 1 — Diagnostic Territorial Automatique) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 647.4333070866141497 Td
+(Chaque region et departement dispose d'une fiche complete : population, densite, rang national,) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 633.8270078740157487 Td
+(comparaison avec la moyenne. Narratif explicatif genere automatiquement en wolof ET en francais.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 614.5514173228345953 Td
+(Module 2 — Analyse des Ecarts \(Gap Analysis\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 597.5435433070865656 Td
+(Compare chaque territoire aux normes internationales : OMS \(sante\), UNESCO \(education\), ODD \(eau,) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 583.9372440944881646 Td
+(electricite, pauvrete\). Identifie les deficits critiques et quantifie les besoins : 'Il manque 12 postes de sante) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 570.3309448818897636 Td
+(pour atteindre la norme OMS.') Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 551.0553543307087239 Td
+(Module 3 — Score d'Opportunite Entrepreneuriale) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 534.0474803149606942 Td
+(Evalue le potentiel economique de chaque territoire sur 5 facteurs : taille du marche, pouvoir d'achat,) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 520.4411811023621794 Td
+(infrastructures, lacunes en services, niveau d'education. Score de 0 a 100 avec categorisation.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 501.1655905511811397 Td
+(Module 4 — Simulateur d'Impact Investissement) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 484.15771653543311 Td
+(L'utilisateur choisit un type d'investissement \(sante, education, eau\) et voit l'impact immediat : 'Si vous) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 470.5514173228346522 Td
+(construisez 5 postes de sante, la couverture passe de 0.72 a 0.84 pour 10 000 hab.' Avec estimation du cout.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 451.2758267716535556 Td
+(Module 5 — Generateur de Document PDC) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 434.2679527559055259 Td
+(Genere un PDF officiel de 5 pages : diagnostic complet, analyse des ecarts, recommandations chiffrees.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 420.661653543307068 Td
+(Format pret pour depot en prefecture. Remplace un consultant a 3 millions FCFA.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 401.3860629921259147 Td
+(Module 6 — Interface Bilingue Wolof/Francais) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 384.378188976377885 Td
+(Tout le contenu est disponible en wolof et en francais. Glossaire de 50+ termes statistiques traduits. Les) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 370.7718897637794271 Td
+(narratifs sont generes dans les deux langues.) Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 3/8) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 4592
+>>
+stream
+0.5670000000000001 w
+0.86 0.86 0.85 RG
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 785.1970866141732586 Td
+(POUR QUI ?) Tj
+ET
+0.86 0.86 0.85 RG
+56.6929133858267775 748.346692913385823 m
+538.5826771653544256 748.346692913385823 l
+S
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 734.1734645669291695 Td
+(Maires et elus locaux \(559 communes\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 717.1655905511811397 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 717.1655905511811397 Td
+(Generer le diagnostic statistique du PDC en 1 clic \(gratuit vs 3M FCFA\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 700.7246456692912489 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 700.7246456692912489 Td
+(Identifier les deficits prioritaires pour les demandes de financement) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 684.2837007874015853 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 684.2837007874015853 Td
+(Simuler l'impact des investissements avant decision) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 667.8427559055118081 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 667.8427559055118081 Td
+(Presenter les donnees en wolof lors des conseils communautaires) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 651.4018110236220309 Td
+(Entrepreneurs et investisseurs) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 634.3939370078740012 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 634.3939370078740012 Td
+(Evaluer le potentiel d'un territoire avant implantation) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 617.952992125984224 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 617.952992125984224 Td
+(Identifier les zones a forte demande non satisfaite \(opportunites\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 601.5120472440944468 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 601.5120472440944468 Td
+(Comparer les regions/departements sur des criteres economiques) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 585.0711023622047833 Td
+(Journalistes) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 568.0632283464567536 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 568.0632283464567536 Td
+(Acceder aux statistiques en wolof pour les radios communautaires) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 551.6222834645669764 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 551.6222834645669764 Td
+(Identifier les territoires en situation critique \(sujet d'enquete\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 535.1813385826771992 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 535.1813385826771992 Td
+(Exporter des donnees chiffrees pour articles) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 518.7403937007874219 Td
+(Chercheurs et ONG) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 501.7325196850393922 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 501.7325196850393922 Td
+(Acceder a des donnees structurees sans naviguer les PDF ANSD) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 485.2915748031496719 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 485.2915748031496719 Td
+(Comparer les territoires sur des indicateurs standardises) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 468.8506299212598947 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 468.8506299212598947 Td
+(Utiliser les analyses des ecarts pour cibler les interventions) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 452.4096850393701175 Td
+(ANSD) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 435.4018110236220309 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 435.4018110236220309 Td
+(Demonstrateur de ce que pourrait etre l'infrastructure de diffusion moderne) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 418.9608661417322537 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 418.9608661417322537 Td
+(Vitrine des 20 ans de donnees produites) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 402.5199212598424765 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 402.5199212598424765 Td
+(Modele reproductible \(open source, zero cout\)) Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 4/8) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 2912
+>>
+stream
+0.5670000000000001 w
+0.86 0.86 0.85 RG
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 785.1970866141732586 Td
+(INNOVATION TECHNIQUE) Tj
+ET
+0.86 0.86 0.85 RG
+56.6929133858267775 748.346692913385823 m
+538.5826771653544256 748.346692913385823 l
+S
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 734.1734645669291695 Td
+(Zero serveur — Tout dans le navigateur) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 717.1655905511811397 Td
+(DuckDB WASM execute les requetes SQL analytiques directement dans le navigateur de l'utilisateur. Aucun) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 703.559291338582625 Td
+(serveur backend, aucune base de donnees, aucun cout de calcul. L'application supporte un nombre illimite) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 689.952992125984224 Td
+(d'utilisateurs sans infrastructure.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 670.6774015748031843 Td
+(Offline-first \(PWA\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 653.6695275590550409 Td
+(Service Workers mettent en cache toutes les donnees au premier chargement. L'application fonctionne) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 640.0632283464567536 Td
+(SANS internet — essentiel pour les zones rurales du Senegal ou la connectivite est intermittente.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 620.7876377952756002 Td
+(Donnees verifiees Banque Mondiale) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 603.7797637795275705 Td
+(14 indicateurs avec series temporelles completes \(1990-2025\), mis a jour automatiquement via l'API World) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 590.1734645669291695 Td
+(Bank. Toutes les donnees sont tracables et sourcees.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 570.8978740157481298 Td
+(Architecture reproductible) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 553.8899999999999864 Td
+(Le modele technique \(Next.js + DuckDB WASM + Parquet sur CDN\) est transposable a n'importe quel pays.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 540.2837007874015853 Td
+(Un fork du depot + remplacement des donnees = meme outil pour le Mali, la Cote d'Ivoire, le Burkina Faso.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 521.0081102362205456 Td
+(Cout total de possession : 0 FCFA) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 504.0002362204724591 Td
+(Hebergement Vercel \(gratuit\), donnees publiques \(World Bank API\), code open source. Aucune dependance) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 490.3939370078740581 Td
+(a un service payant. Perenne sans financement.) Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 5/8) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 2791
+>>
+stream
+0.5670000000000001 w
+0.86 0.86 0.85 RG
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 785.1970866141732586 Td
+(SCENARIO DE DEMONSTRATION) Tj
+ET
+0.86 0.86 0.85 RG
+56.6929133858267775 748.346692913385823 m
+538.5826771653544256 748.346692913385823 l
+S
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 734.1734645669291695 Td
+(Voici ce que les juges verront en 3 minutes :) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 706.3939370078740012 Td
+(30 secondes — Le probleme) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 689.3860629921259715 Td
+('Le site ansd.sn est en panne. Les donnees sont en PDF. Aucun elu local ne peut y acceder. Samm Sa Gox) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 675.7797637795275705 Td
+(resout ca.') Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 656.5041732283464171 Td
+(60 secondes — Le diagnostic) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 639.4962992125983874 Td
+(Clic sur 'Kedougou' \(region la plus defavorisee\). Diagnostic instantane : population, densite, rang #14/14.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 625.8899999999999864 Td
+(Narrative en wolof. Les juges voient : 'CRITIQUE : il manque 15 postes de sante, 85 ecoles.') Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 606.614409448818833 Td
+(30 secondes — Le simulateur) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 589.6065354330708033 Td
+('Si on construit 10 postes de sante \(450M FCFA\), la couverture passe de 0.84 a 1.31 pour 10 000 hab —) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 576.0002362204725159 Td
+(au-dessus de la norme OMS.' L'elu peut justifier sa demande de budget.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 556.7246456692913625 Td
+(30 secondes — Le PDF PDC) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 539.7167716535433328 Td
+(Clic sur 'Generer diagnostic PDC'. Un PDF de 5 pages se telecharge. Format officiel. Pret pour la prefecture.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 526.1104724409449318 Td
+(Gratuit. Ce document remplace un consultant a 3 millions.) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 506.8348818897637784 Td
+(30 secondes — Offline + Wolof) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 489.8270078740157487 Td
+(Couper le wifi. L'app fonctionne toujours. Basculer en wolof. Tout est traduit. '88% des Senegalais peuvent) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 476.2207086614173477 Td
+(enfin lire les statistiques de leur pays.') Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 6/8) Tj
+ET
+endstream
+endobj
+15 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 16 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 3241
+>>
+stream
+0.5670000000000001 w
+0.86 0.86 0.85 RG
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 785.1970866141732586 Td
+(IMPACT CHIFFRE) Tj
+ET
+0.86 0.86 0.85 RG
+56.6929133858267775 748.346692913385823 m
+538.5826771653544256 748.346692913385823 l
+S
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 734.1734645669291695 Td
+(Economie directe) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 717.1655905511811397 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 717.1655905511811397 Td
+(559 communes x 3M FCFA \(cout consultant PDC\) = 1.68 milliard FCFA d'economie potentielle) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 700.7246456692912489 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 700.7246456692912489 Td
+(Temps divise par 90 \(3 mois -> 1 jour pour un diagnostic\)) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 684.2837007874015853 Td
+(Inclusion) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 667.2758267716535556 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 667.2758267716535556 Td
+(88% de la population \(wolofones\) accede pour la premiere fois aux statistiques) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 650.8348818897637784 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 650.8348818897637784 Td
+(Offline : zones rurales incluses meme sans internet stable) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 634.3939370078740012 Td
+(Transparence) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 617.3860629921259715 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 617.3860629921259715 Td
+(Chaque citoyen peut verifier les donnees de sa commune) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 600.9451181102361943 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 600.9451181102361943 Td
+(Comparaison inter-territoriale transparente \(rang national\)) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 584.5041732283464171 Td
+(Aide a la decision) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 567.4962992125983874 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 567.4962992125983874 Td
+(Simulateur d'impact quantifie les resultats AVANT l'investissement) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 551.0553543307087239 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 551.0553543307087239 Td
+(Gap analysis oriente les priorites budgetaires) Tj
+ET
+BT
+/F2 10.5 Tf
+12.0749999999999993 TL
+0.102 g
+56.6929133858267775 534.614409448818833 Td
+(Reproductibilite) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 517.6065354330708033 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 517.6065354330708033 Td
+(Open source, zero cout, transposable a toute l'UEMOA) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+62.3622047244094517 501.1655905511811397 Td
+(-) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.102 g
+76.5354330708661479 501.1655905511811397 Td
+(L'ANSD peut l'adopter comme outil officiel de diffusion) Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 7/8) Tj
+ET
+endstream
+endobj
+17 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 18 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 1421
+>>
+stream
+0.5670000000000001 w
+0.86 0.86 0.85 RG
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.718 0.278 0.165 rg
+56.6929133858267775 785.1970866141732586 Td
+(RESUME) Tj
+ET
+0.86 0.86 0.85 RG
+56.6929133858267775 748.346692913385823 m
+538.5826771653544256 748.346692913385823 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.102 g
+56.6929133858267775 720.0002362204724022 Td
+(Samm Sa Gox n'est pas un dashboard.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.102 g
+56.6929133858267775 680.3151968503937042 Td
+(C'est l'outil que chaque maire utilise pour generer son PDC.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.102 g
+56.6929133858267775 660.4726771653542983 Td
+(C'est l'outil que chaque entrepreneur consulte avant d'investir.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.102 g
+56.6929133858267775 640.6301574803148924 Td
+(C'est l'outil que chaque journaliste wolof utilise pour informer.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.102 g
+56.6929133858267775 620.7876377952754865 Td
+(C'est l'outil que l'ANSD montre comme vitrine de 20 ans de travail.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.102 g
+56.6929133858267775 581.1025984251967884 Td
+(Zero serveur. Zero cout. Wolof. Offline.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.102 g
+56.6929133858267775 561.2600787401574962 Td
+(Indispensable.) Tj
+ET
+BT
+/F2 7 Tf
+8.0499999999999989 TL
+0.588 g
+56.6929133858267775 19.8427559055116944 Td
+(Samm Sa Gox — Presentation projet | Page 8/8) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R ]
+/Count 8
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+23 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+24 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+25 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+26 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+27 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+28 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+29 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+30 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+31 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+32 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 19 0 R
+/F2 20 0 R
+/F3 21 0 R
+/F4 22 0 R
+/F5 23 0 R
+/F6 24 0 R
+/F7 25 0 R
+/F8 26 0 R
+/F9 27 0 R
+/F10 28 0 R
+/F11 29 0 R
+/F12 30 0 R
+/F13 31 0 R
+/F14 32 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+33 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260814173026-00'00')
+>>
+endobj
+34 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 35
+0000000000 65535 f 
+0000024816 00000 n 
+0000026684 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000001958 00000 n 
+0000002095 00000 n 
+0000004770 00000 n 
+0000004907 00000 n 
+0000008900 00000 n 
+0000009038 00000 n 
+0000013683 00000 n 
+0000013822 00000 n 
+0000016787 00000 n 
+0000016926 00000 n 
+0000019770 00000 n 
+0000019909 00000 n 
+0000023203 00000 n 
+0000023342 00000 n 
+0000024919 00000 n 
+0000025045 00000 n 
+0000025176 00000 n 
+0000025310 00000 n 
+0000025448 00000 n 
+0000025572 00000 n 
+0000025701 00000 n 
+0000025833 00000 n 
+0000025969 00000 n 
+0000026097 00000 n 
+0000026224 00000 n 
+0000026353 00000 n 
+0000026486 00000 n 
+0000026588 00000 n 
+0000026937 00000 n 
+0000027023 00000 n 
+trailer
+<<
+/Size 35
+/Root 34 0 R
+/Info 33 0 R
+/ID [ <0976A72650B9C5CF6CFA0665D74D2893> <0976A72650B9C5CF6CFA0665D74D2893> ]
+>>
+startxref
+27127
+%%EOF
