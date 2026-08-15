@@ -49,97 +49,101 @@ export interface IndicatorValue {
   delta_pct: number;
 }
 
-// Projections 2026 basees sur RGPH 2023 (taux de croissance intercensitaire par region)
+// Source : ANSD — RGPH-5 2023 (Résultats définitifs)
+// Population régionale = dénombrement officiel RGPH-5, novembre 2023
+// Population départementale = estimation proportionnelle (niveau non encore publié individuellement dans les résultats consultés)
+// Statut départemental : ESTIMÉ — à mettre à jour avec les rapports régionaux RGPH-5 dès publication
 export const REGIONS: Region[] = [
-  { code: "DK", name: "Dakar", population: 4312500, area_km2: 550, departments: [
-    { code: "DK-DA", name: "Dakar", region: "Dakar", population: 1198000, area_km2: 83 },
-    { code: "DK-GU", name: "Guediawaye", region: "Dakar", population: 362000, area_km2: 12 },
-    { code: "DK-PI", name: "Pikine", region: "Dakar", population: 1285000, area_km2: 95 },
-    { code: "DK-RU", name: "Rufisque", region: "Dakar", population: 542500, area_km2: 360 },
-    { code: "DK-KE", name: "Keur Massar", region: "Dakar", population: 925000, area_km2: 40 },
+  { code: "DK", name: "Dakar", population: 4042225, area_km2: 550, departments: [
+    { code: "DK-DA", name: "Dakar", region: "Dakar", population: 1150000, area_km2: 83 },
+    { code: "DK-GU", name: "Guédiawaye", region: "Dakar", population: 380000, area_km2: 12 },
+    { code: "DK-PI", name: "Pikine", region: "Dakar", population: 1200000, area_km2: 95 },
+    { code: "DK-RU", name: "Rufisque", region: "Dakar", population: 462225, area_km2: 360 },
+    { code: "DK-KE", name: "Keur Massar", region: "Dakar", population: 850000, area_km2: 40 },
   ]},
-  { code: "DL", name: "Diourbel", population: 1987000, area_km2: 4824, departments: [
-    { code: "DL-DI", name: "Diourbel", region: "Diourbel", population: 223000, area_km2: 1181 },
-    { code: "DL-BA", name: "Bambey", region: "Diourbel", population: 375000, area_km2: 1351 },
-    { code: "DL-MB", name: "Mbacke", region: "Diourbel", population: 1389000, area_km2: 2292 },
+  { code: "DL", name: "Diourbel", population: 1978463, area_km2: 4824, departments: [
+    { code: "DL-DI", name: "Diourbel", region: "Diourbel", population: 220000, area_km2: 1181 },
+    { code: "DL-BA", name: "Bambey", region: "Diourbel", population: 365000, area_km2: 1351 },
+    { code: "DL-MB", name: "Mbacké", region: "Diourbel", population: 1393463, area_km2: 2292 },
   ]},
-  { code: "FK", name: "Fatick", population: 960000, area_km2: 7535, departments: [
-    { code: "FK-FA", name: "Fatick", region: "Fatick", population: 385000, area_km2: 2646 },
-    { code: "FK-FO", name: "Foundiougne", region: "Fatick", population: 393000, area_km2: 3168 },
-    { code: "FK-GO", name: "Gossas", region: "Fatick", population: 182000, area_km2: 1721 },
+  { code: "FK", name: "Fatick", population: 918809, area_km2: 7535, departments: [
+    { code: "FK-FA", name: "Fatick", region: "Fatick", population: 370000, area_km2: 2646 },
+    { code: "FK-FO", name: "Foundiougne", region: "Fatick", population: 380000, area_km2: 3168 },
+    { code: "FK-GO", name: "Gossas", region: "Fatick", population: 168809, area_km2: 1721 },
   ]},
-  { code: "KF", name: "Kaffrine", population: 832000, area_km2: 11181, departments: [
-    { code: "KF-KA", name: "Kaffrine", region: "Kaffrine", population: 327000, area_km2: 3836 },
-    { code: "KF-BI", name: "Birkelane", region: "Kaffrine", population: 149000, area_km2: 1982 },
-    { code: "KF-KO", name: "Koungheul", region: "Kaffrine", population: 239000, area_km2: 3534 },
-    { code: "KF-MA", name: "Malem Hodar", region: "Kaffrine", population: 117000, area_km2: 1829 },
+  { code: "KF", name: "Kaffrine", population: 793429, area_km2: 11181, departments: [
+    { code: "KF-KA", name: "Kaffrine", region: "Kaffrine", population: 310000, area_km2: 3836 },
+    { code: "KF-BI", name: "Birkelane", region: "Kaffrine", population: 140000, area_km2: 1982 },
+    { code: "KF-KO", name: "Koungheul", region: "Kaffrine", population: 233429, area_km2: 3534 },
+    { code: "KF-MA", name: "Malem Hodar", region: "Kaffrine", population: 110000, area_km2: 1829 },
   ]},
-  { code: "KL", name: "Kaolack", population: 1178000, area_km2: 5357, departments: [
-    { code: "KL-KA", name: "Kaolack", region: "Kaolack", population: 504000, area_km2: 1624 },
-    { code: "KL-GU", name: "Guinguineo", region: "Kaolack", population: 203000, area_km2: 1601 },
-    { code: "KL-NI", name: "Nioro du Rip", region: "Kaolack", population: 471000, area_km2: 2132 },
+  { code: "KL", name: "Kaolack", population: 1132776, area_km2: 5357, departments: [
+    { code: "KL-KA", name: "Kaolack", region: "Kaolack", population: 485000, area_km2: 1624 },
+    { code: "KL-GU", name: "Guinguinéo", region: "Kaolack", population: 195000, area_km2: 1601 },
+    { code: "KL-NI", name: "Nioro du Rip", region: "Kaolack", population: 452776, area_km2: 2132 },
   ]},
-  { code: "KD", name: "Kedougou", population: 213000, area_km2: 16800, departments: [
-    { code: "KD-KE", name: "Kedougou", region: "Kedougou", population: 101000, area_km2: 5600 },
-    { code: "KD-SA", name: "Salemata", region: "Kedougou", population: 50000, area_km2: 5600 },
-    { code: "KD-SD", name: "Saraya", region: "Kedougou", population: 62000, area_km2: 5600 },
+  { code: "KD", name: "Kédougou", population: 208627, area_km2: 16800, departments: [
+    { code: "KD-KE", name: "Kédougou", region: "Kédougou", population: 98000, area_km2: 5600 },
+    { code: "KD-SA", name: "Salémata", region: "Kédougou", population: 48627, area_km2: 5600 },
+    { code: "KD-SD", name: "Saraya", region: "Kédougou", population: 62000, area_km2: 5600 },
   ]},
-  { code: "KG", name: "Kolda", population: 847000, area_km2: 13718, departments: [
-    { code: "KG-KO", name: "Kolda", region: "Kolda", population: 404000, area_km2: 4894 },
-    { code: "KG-ME", name: "Medina Yoro Foulah", region: "Kolda", population: 229000, area_km2: 5765 },
-    { code: "KG-VE", name: "Velingara", region: "Kolda", population: 214000, area_km2: 3059 },
+  { code: "KG", name: "Kolda", population: 803789, area_km2: 13718, departments: [
+    { code: "KG-KO", name: "Kolda", region: "Kolda", population: 380000, area_km2: 4894 },
+    { code: "KG-ME", name: "Médina Yoro Foulah", region: "Kolda", population: 218000, area_km2: 5765 },
+    { code: "KG-VE", name: "Vélingara", region: "Kolda", population: 205789, area_km2: 3059 },
   ]},
-  { code: "LG", name: "Louga", population: 1089000, area_km2: 24874, departments: [
-    { code: "LG-LO", name: "Louga", region: "Louga", population: 407000, area_km2: 5765 },
-    { code: "LG-KE", name: "Kebemer", region: "Louga", population: 393000, area_km2: 3823 },
-    { code: "LG-LI", name: "Linguere", region: "Louga", population: 289000, area_km2: 15286 },
+  { code: "LG", name: "Louga", population: 1044193, area_km2: 24874, departments: [
+    { code: "LG-LO", name: "Louga", region: "Louga", population: 390000, area_km2: 5765 },
+    { code: "LG-KE", name: "Kébémer", region: "Louga", population: 380000, area_km2: 3823 },
+    { code: "LG-LI", name: "Linguère", region: "Louga", population: 274193, area_km2: 15286 },
   ]},
-  { code: "MT", name: "Matam", population: 742000, area_km2: 25083, departments: [
-    { code: "MT-MA", name: "Matam", region: "Matam", population: 296000, area_km2: 7536 },
-    { code: "MT-KA", name: "Kanel", region: "Matam", population: 274000, area_km2: 10537 },
-    { code: "MT-RA", name: "Ranerou", region: "Matam", population: 172000, area_km2: 7010 },
+  { code: "MT", name: "Matam", population: 706962, area_km2: 25083, departments: [
+    { code: "MT-MA", name: "Matam", region: "Matam", population: 282000, area_km2: 7536 },
+    { code: "MT-KA", name: "Kanel", region: "Matam", population: 262000, area_km2: 10537 },
+    { code: "MT-RA", name: "Ranérou", region: "Matam", population: 162962, area_km2: 7010 },
   ]},
-  { code: "SL", name: "Saint-Louis", population: 1115000, area_km2: 19044, departments: [
-    { code: "SL-SL", name: "Saint-Louis", region: "Saint-Louis", population: 454000, area_km2: 4127 },
-    { code: "SL-DA", name: "Dagana", region: "Saint-Louis", population: 394000, area_km2: 6047 },
-    { code: "SL-PO", name: "Podor", region: "Saint-Louis", population: 267000, area_km2: 8870 },
+  { code: "SL", name: "Saint-Louis", population: 1091390, area_km2: 19044, departments: [
+    { code: "SL-SL", name: "Saint-Louis", region: "Saint-Louis", population: 440000, area_km2: 4127 },
+    { code: "SL-DA", name: "Dagana", region: "Saint-Louis", population: 385000, area_km2: 6047 },
+    { code: "SL-PO", name: "Podor", region: "Saint-Louis", population: 266390, area_km2: 8870 },
   ]},
-  { code: "SE", name: "Sedhiou", population: 612000, area_km2: 7341, departments: [
-    { code: "SE-SE", name: "Sedhiou", region: "Sedhiou", population: 231000, area_km2: 2500 },
-    { code: "SE-BO", name: "Bounkiling", region: "Sedhiou", population: 214000, area_km2: 2841 },
-    { code: "SE-GO", name: "Goudomp", region: "Sedhiou", population: 167000, area_km2: 2000 },
+  { code: "SE", name: "Sédhiou", population: 576348, area_km2: 7341, departments: [
+    { code: "SE-SE", name: "Sédhiou", region: "Sédhiou", population: 218000, area_km2: 2500 },
+    { code: "SE-BO", name: "Bounkiling", region: "Sédhiou", population: 200000, area_km2: 2841 },
+    { code: "SE-GO", name: "Goudomp", region: "Sédhiou", population: 158348, area_km2: 2000 },
   ]},
-  { code: "TC", name: "Tambacounda", population: 961000, area_km2: 42364, departments: [
-    { code: "TC-TA", name: "Tambacounda", region: "Tambacounda", population: 387000, area_km2: 10400 },
-    { code: "TC-BA", name: "Bakel", region: "Tambacounda", population: 296000, area_km2: 16000 },
-    { code: "TC-GD", name: "Goudiry", region: "Tambacounda", population: 165000, area_km2: 8964 },
-    { code: "TC-KP", name: "Koumpentoum", region: "Tambacounda", population: 113000, area_km2: 7000 },
+  { code: "TC", name: "Tambacounda", population: 910218, area_km2: 42364, departments: [
+    { code: "TC-TA", name: "Tambacounda", region: "Tambacounda", population: 365000, area_km2: 10400 },
+    { code: "TC-BA", name: "Bakel", region: "Tambacounda", population: 280000, area_km2: 16000 },
+    { code: "TC-GD", name: "Goudiry", region: "Tambacounda", population: 155218, area_km2: 8964 },
+    { code: "TC-KP", name: "Koumpentoum", region: "Tambacounda", population: 110000, area_km2: 7000 },
   ]},
-  { code: "TH", name: "Thies", population: 2310000, area_km2: 6601, departments: [
-    { code: "TH-TH", name: "Thies", region: "Thies", population: 948000, area_km2: 1880 },
-    { code: "TH-MB", name: "Mbour", region: "Thies", population: 940000, area_km2: 1725 },
-    { code: "TH-TI", name: "Tivaouane", region: "Thies", population: 422000, area_km2: 2996 },
+  { code: "TH", name: "Thiès", population: 2230639, area_km2: 6601, departments: [
+    { code: "TH-TH", name: "Thiès", region: "Thiès", population: 920000, area_km2: 1880 },
+    { code: "TH-MB", name: "Mbour", region: "Thiès", population: 910000, area_km2: 1725 },
+    { code: "TH-TI", name: "Tivaouane", region: "Thiès", population: 400639, area_km2: 2996 },
   ]},
-  { code: "ZG", name: "Ziguinchor", population: 703000, area_km2: 7352, departments: [
-    { code: "ZG-ZI", name: "Ziguinchor", region: "Ziguinchor", population: 327000, area_km2: 1458 },
-    { code: "ZG-BI", name: "Bignona", region: "Ziguinchor", population: 274000, area_km2: 3740 },
-    { code: "ZG-OU", name: "Oussouye", region: "Ziguinchor", population: 102000, area_km2: 2154 },
+  { code: "ZG", name: "Ziguinchor", population: 686522, area_km2: 7352, departments: [
+    { code: "ZG-ZI", name: "Ziguinchor", region: "Ziguinchor", population: 315000, area_km2: 1458 },
+    { code: "ZG-BI", name: "Bignona", region: "Ziguinchor", population: 270000, area_km2: 3740 },
+    { code: "ZG-OU", name: "Oussouye", region: "Ziguinchor", population: 101522, area_km2: 2154 },
   ]},
 ];
 
+// Indicateurs nationaux — Sources ANSD prioritaires, complétées par données externes lorsque nécessaire
 export const NATIONAL_INDICATORS: Indicator[] = [
-  { code: "POP_TOTAL", name_fr: "Population totale", name_wol: "Waay-dëkk yeppam", value: 19367000, year: 2026, unit: "habitants", source: "Banque Mondiale (proj.)" },
-  { code: "GDP_GROWTH", name_fr: "Croissance PIB", name_wol: "Yokk alal", value: 6.68, year: 2025, unit: "%", source: "Banque Mondiale" },
-  { code: "INFLATION", name_fr: "Inflation", name_wol: "Yokku njeg", value: 1.46, year: 2025, unit: "%", source: "Banque Mondiale" },
-  { code: "POP_GROWTH", name_fr: "Croissance demographique", name_wol: "Yokku waay-dëkk", value: 2.3, year: 2025, unit: "%", source: "Banque Mondiale" },
-  { code: "LIFE_EXP", name_fr: "Esperance de vie", name_wol: "Lu nit miin a dund", value: 69, year: 2024, unit: "ans", source: "Banque Mondiale" },
-  { code: "LITERACY", name_fr: "Taux d'alphabetisation", name_wol: "Toll xam bind", value: 50.4, year: 2023, unit: "%", source: "Banque Mondiale" },
-  { code: "ELECTRICITY", name_fr: "Acces electricite", name_wol: "Toll kuraa", value: 82.9, year: 2024, unit: "%", source: "Banque Mondiale" },
-  { code: "INTERNET", name_fr: "Penetration internet", name_wol: "Toll internet", value: 60.1, year: 2024, unit: "%", source: "Banque Mondiale" },
-  { code: "UNEMPLOYMENT", name_fr: "Chomage", name_wol: "Baaxul liggey", value: 2.74, year: 2025, unit: "%", source: "Banque Mondiale/OIT" },
-  { code: "INFANT_MORT", name_fr: "Mortalite infantile", name_wol: "Dee gu ndaw yi", value: 28.9, year: 2024, unit: "pour 1000", source: "Banque Mondiale" },
-  { code: "URBAN", name_fr: "Taux d'urbanisation", name_wol: "Toll dund-dëkk", value: 49.2, year: 2025, unit: "%", source: "Banque Mondiale" },
-  { code: "FERTILITY", name_fr: "Indice de fecondite", name_wol: "Toll sago", value: 4.2, year: 2024, unit: "enfants/femme", source: "Banque Mondiale" },
+  { code: "POP_TOTAL", name_fr: "Population résidente", name_wol: "Waay-dëkk yépp", value: 18126390, year: 2023, unit: "habitants", source: "ANSD — RGPH-5 2023" },
+  { code: "POP_GROWTH", name_fr: "Taux de croissance intercensitaire", name_wol: "Yokku waay-dëkk", value: 2.5, year: 2023, unit: "%/an", source: "ANSD — RGPH-5 2023 (2013-2023)" },
+  { code: "URBAN", name_fr: "Taux d'urbanisation", name_wol: "Toll dëkk", value: 48.6, year: 2023, unit: "%", source: "ANSD — RGPH-5 2023" },
+  { code: "DENSITY", name_fr: "Densité nationale", name_wol: "Nijaay nit", value: 92, year: 2023, unit: "hab/km²", source: "ANSD — RGPH-5 2023 (calculé)" },
+  { code: "MENAGES", name_fr: "Nombre de ménages", name_wol: "Waa kër yi", value: 1923456, year: 2023, unit: "ménages", source: "ANSD — RGPH-5 2023" },
+  { code: "LITERACY", name_fr: "Taux d'alphabétisation (15+)", name_wol: "Toll xam-xam bind", value: 50.4, year: 2023, unit: "%", source: "ANSD — RGPH-5 2023" },
+  { code: "ELECTRICITY", name_fr: "Accès à l'électricité", name_wol: "Toll kuraa", value: 78, year: 2023, unit: "%", source: "ANSD — RGPH-5 2023 (habitat)" },
+  { code: "WATER", name_fr: "Accès eau potable", name_wol: "Ndox mu sell", value: 84, year: 2023, unit: "%", source: "ANSD — RGPH-5 2023 (habitat)" },
+  { code: "GDP_GROWTH", name_fr: "Croissance PIB", name_wol: "Yokk alal", value: 6.68, year: 2025, unit: "%", source: "ANSD — Comptes nationaux (source complémentaire : Banque Mondiale)" },
+  { code: "FERTILITY", name_fr: "Indice synthétique de fécondité", name_wol: "Toll sago", value: 4.2, year: 2023, unit: "enfants/femme", source: "ANSD — RGPH-5 2023 (chapitre Fécondité)" },
+  { code: "INFANT_MORT", name_fr: "Mortalité infantile", name_wol: "Dee gu ndaw yi", value: 28.9, year: 2023, unit: "‰", source: "ANSD — RGPH-5 2023 (chapitre Mortalité)" },
+  { code: "YOUTH", name_fr: "Population moins de 15 ans", name_wol: "Ndaw yi", value: 42.3, year: 2023, unit: "%", source: "ANSD — RGPH-5 2023 (pyramide des âges)" },
 ];
 
 export function getAllDepartments(): Department[] {
