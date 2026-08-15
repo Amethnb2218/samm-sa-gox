@@ -62,7 +62,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
               id: "osm-tiles",
               type: "raster",
               source: "osm",
-              paint: { "raster-opacity": 0.15, "raster-saturation": -1 },
+              paint: { "raster-opacity": 0.08, "raster-saturation": -1 },
             },
           ],
         },
@@ -95,15 +95,15 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
                 const density = r.population / r.area_km2;
                 const maxDensity = 7841;
                 const norm = Math.min(density / maxDensity, 1);
-                const red = Math.round(191 + (168 - 191) * norm);
-                const green = Math.round(169 + (66 - 169) * norm);
-                const blue = Math.round(125 + (42 - 125) * norm);
+                const red = Math.round(220 + (140 - 220) * norm);
+                const green = Math.round(195 + (55 - 195) * norm);
+                const blue = Math.round(150 + (35 - 150) * norm);
                 const name = Object.entries(NAME_TO_CODE).find(([, c]) => c === r.code)?.[0] || "";
                 return [name, `rgb(${red},${green},${blue})`];
               }),
-              "#E4E2DC",
+              "#DCD8D0",
             ],
-            "fill-opacity": 0.92,
+            "fill-opacity": 0.95,
           },
         });
 
@@ -112,8 +112,8 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           type: "line",
           source: "regions",
           paint: {
-            "line-color": "rgba(248,247,244,0.95)",
-            "line-width": 2,
+            "line-color": "#FFFFFF",
+            "line-width": 2.5,
           },
         });
 
@@ -123,7 +123,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           source: "regions",
           paint: {
             "line-color": "#1C1C1C",
-            "line-width": 2.5,
+            "line-width": 3,
           },
           filter: ["==", "name", ""],
         });
@@ -134,7 +134,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           source: "regions",
           layout: {
             "text-field": ["get", "shapeName"],
-            "text-size": 10,
+            "text-size": 11,
             "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
             "text-anchor": "center",
             "text-allow-overlap": false,
