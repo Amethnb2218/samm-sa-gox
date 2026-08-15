@@ -38,22 +38,31 @@ export default function SearchBar({ lang, onSelect }: SearchBarProps) {
   }
 
   return (
-    <div ref={ref} style={{ position: "relative", width: "100%", maxWidth: "28rem" }}>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => handleInput(e.target.value)}
-        onFocus={() => { if (results.length > 0) setOpen(true); }}
-        placeholder={lang === "wol" ? "Seeke sa gox... (Dakar, Thies, Pikine...)" : "Rechercher une localite... (Dakar, Thies, Pikine...)"}
-        style={{
-          width: "100%",
-          padding: "8px 12px",
-          fontSize: "14px",
-          border: "1px solid var(--color-border)",
-          backgroundColor: "var(--color-bg-card)",
-          outline: "none",
-        }}
-      />
+    <div ref={ref} style={{ position: "relative", width: "100%", maxWidth: "320px" }}>
+      <div style={{ position: "relative" }}>
+        <svg style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", width: "14px", height: "14px", color: "var(--color-text-muted)" }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
+        </svg>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => handleInput(e.target.value)}
+          onFocus={() => { if (results.length > 0) setOpen(true); }}
+          placeholder={lang === "wol" ? "Seeke sa gox..." : "Rechercher un territoire..."}
+          style={{
+            width: "100%",
+            padding: "10px 12px 10px 36px",
+            fontSize: "13px",
+            border: "1px solid var(--color-border)",
+            borderRadius: "var(--radius-sm)",
+            backgroundColor: "var(--color-bg-card)",
+            outline: "none",
+            transition: "border-color 0.15s ease",
+          }}
+          onFocusCapture={(e) => { (e.target as HTMLInputElement).style.borderColor = "var(--color-terracotta-muted)"; }}
+          onBlurCapture={(e) => { (e.target as HTMLInputElement).style.borderColor = "var(--color-border)"; }}
+        />
+      </div>
       {open && results.length > 0 && (
         <ul style={{
           position: "absolute",
@@ -61,14 +70,15 @@ export default function SearchBar({ lang, onSelect }: SearchBarProps) {
           top: "100%",
           left: 0,
           right: 0,
-          marginTop: "2px",
+          marginTop: "4px",
           backgroundColor: "var(--color-bg-card)",
           border: "1px solid var(--color-border)",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          borderRadius: "var(--radius-md)",
+          boxShadow: "var(--shadow-lg)",
           maxHeight: "240px",
           overflowY: "auto",
           listStyle: "none",
-          padding: 0,
+          padding: "4px",
           margin: 0,
         }}>
           {results.map((r) => (
@@ -83,20 +93,21 @@ export default function SearchBar({ lang, onSelect }: SearchBarProps) {
                   width: "100%",
                   textAlign: "left",
                   padding: "10px 12px",
-                  fontSize: "14px",
+                  fontSize: "13px",
                   border: "none",
-                  borderBottom: "1px solid var(--color-border)",
+                  borderRadius: "var(--radius-sm)",
                   backgroundColor: "transparent",
                   cursor: "pointer",
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
+                  transition: "background-color 0.1s ease",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--color-sand-light)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--color-bg-subtle)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
               >
                 <span style={{ fontWeight: 500 }}>{r.name}</span>
-                <span style={{ fontSize: "11px", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}>
+                <span className="label-caps" style={{ fontSize: "9px" }}>
                   {r.type} — {r.region}
                 </span>
               </button>

@@ -8,23 +8,22 @@ interface GuidedQuestionsProps {
 }
 
 const QUESTIONS = [
-  { id: "problems", fr: "Quels sont les principaux problèmes de ce territoire ?", wol: "Lan mooy jafe-jafe yi gëna am doole ci gox gi ?", action: "observer" },
-  { id: "invest", fr: "Où investir dans ce territoire ?", wol: "Fan la war a tànn xaalis ci gox gi ?", action: "agir" },
-  { id: "similar", fr: "Quels territoires ressemblent au mien ?", wol: "Yan gox yi mel ni sama gox ?", action: "comparer" },
-  { id: "progress", fr: "Quels progrès en 20 ans ?", wol: "Lan mooy yokk yi ci 20 at ?", action: "timeline" },
-  { id: "impact", fr: "Quel impact si on investit ?", wol: "Lan la mën a wax su ñu tànn xaalis ?", action: "agir" },
-  { id: "compare", fr: "Comment se positionne ce territoire ?", wol: "Naka la gox gi toog ci diggante yeneen yi ?", action: "comparer" },
+  { id: "problems", fr: "Quels problemes prioritaires ?", wol: "Lan mooy jafe-jafe yi ?", action: "observer", icon: "!" },
+  { id: "similar", fr: "Territoires comparables ?", wol: "Yan gox yi mel ni ?", action: "comparer", icon: "=" },
+  { id: "why", fr: "Comment le score est calcule ?", wol: "Naka la score bi joge ?", action: "expliquer", icon: "?" },
+  { id: "invest", fr: "Simuler un investissement", wol: "Seenub xaalis", action: "agir", icon: "+" },
+  { id: "progress", fr: "Evolution sur 20 ans", wol: "Yokk yi ci 20 at", action: "timeline", icon: "~" },
 ];
 
 export default function GuidedQuestions({ lang, onSelect }: GuidedQuestionsProps) {
   return (
-    <div style={{ backgroundColor: "var(--color-bg-card)", border: "1px solid var(--color-border)" }}>
-      <div style={{ padding: "12px 16px", borderBottom: "1px solid var(--color-border)" }}>
-        <p style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-terracotta)", fontFamily: "var(--font-mono)", margin: 0 }}>
-          {lang === "wol" ? "LAN NGAY BËGG A XAAM ?" : "QUE VOULEZ-VOUS SAVOIR ?"}
-        </p>
+    <div className="card">
+      <div className="card-header">
+        <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+          {lang === "wol" ? "Lan ngay begg a xaam ?" : "Explorer"}
+        </span>
       </div>
-      <div style={{ padding: "12px 16px" }}>
+      <div style={{ padding: "8px" }}>
         {QUESTIONS.map((q) => (
           <button
             key={q.id}
@@ -36,18 +35,21 @@ export default function GuidedQuestions({ lang, onSelect }: GuidedQuestionsProps
               width: "100%",
               textAlign: "left",
               padding: "10px 12px",
-              marginBottom: "6px",
-              border: "1px solid var(--color-border)",
+              marginBottom: "2px",
+              border: "none",
+              borderRadius: "var(--radius-sm)",
               backgroundColor: "transparent",
               cursor: "pointer",
               fontSize: "12px",
-              transition: "background-color 0.1s",
+              transition: "background-color 0.1s ease",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--color-sand-light)"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--color-bg-subtle)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
           >
-            <span style={{ fontSize: "10px", color: "var(--color-terracotta)", fontFamily: "var(--font-mono)", width: "12px" }}>→</span>
-            <span>{lang === "wol" ? q.wol : q.fr}</span>
+            <span style={{ width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--color-terracotta)", fontWeight: 700, backgroundColor: "var(--color-terracotta-bg)", borderRadius: "2px" }}>
+              {q.icon}
+            </span>
+            <span style={{ color: "var(--color-text-secondary)" }}>{lang === "wol" ? q.wol : q.fr}</span>
           </button>
         ))}
       </div>

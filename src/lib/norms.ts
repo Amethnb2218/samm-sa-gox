@@ -109,27 +109,29 @@ export interface RegionExtendedData {
 // health_centers, doctors, schools : ESTIMATIONS — non vérifiées dans publications RGPH-5 consultées
 //   Statut : ESTIMÉ — à confirmer avec rapports régionaux ou carte sanitaire/scolaire
 //
-// water_rate : ESTIMATION — le Chapitre 8 contient les données mais extraction en cours
-//   Statut : ESTIMÉ
+// water_rate : % ménages utilisant une source améliorée d'eau (robinet+forage+puits protégé)
+//   Source : Chapitre-8_HABITAT-Rapport-def-RGPH-5.pdf, Tableau VIII-12
+//   Calcul : somme des 6 premières colonnes (robinet logement+cour+voisin+public+forage+puits protégé)
+//   Statut : CALCULÉ par Sàmm Sa Gox à partir de données OFFICIELLES ANSD
 //
 // poverty_rate : ESTIMATION — source EHCVM, non RGPH-5
 //   Statut : ESTIMÉ (source externe)
 // =============================================================================
 export const REGION_EXTENDED: RegionExtendedData[] = [
-  { code: "DK", health_centers: 312, doctors: 890, schools: 1450, literacy_rate: 68.1, electricity_rate: 98.9, water_rate: 95.2, poverty_rate: 18.5 },
-  { code: "DL", health_centers: 98, doctors: 62, schools: 520, literacy_rate: 60.2, electricity_rate: 86.0, water_rate: 78.6, poverty_rate: 48.2 },
-  { code: "FK", health_centers: 65, doctors: 28, schools: 310, literacy_rate: 63.7, electricity_rate: 75.7, water_rate: 72.1, poverty_rate: 55.7 },
-  { code: "KF", health_centers: 48, doctors: 18, schools: 245, literacy_rate: 65.6, electricity_rate: 57.3, water_rate: 64.3, poverty_rate: 62.1 },
-  { code: "KL", health_centers: 72, doctors: 35, schools: 380, literacy_rate: 69.2, electricity_rate: 81.4, water_rate: 75.8, poverty_rate: 49.8 },
-  { code: "KD", health_centers: 18, doctors: 8, schools: 72, literacy_rate: 50.4, electricity_rate: 60.7, water_rate: 48.7, poverty_rate: 71.3 },
-  { code: "KG", health_centers: 52, doctors: 22, schools: 285, literacy_rate: 54.8, electricity_rate: 58.0, water_rate: 58.4, poverty_rate: 63.8 },
-  { code: "LG", health_centers: 68, doctors: 32, schools: 345, literacy_rate: 54.2, electricity_rate: 67.8, water_rate: 71.2, poverty_rate: 52.4 },
-  { code: "MT", health_centers: 45, doctors: 19, schools: 215, literacy_rate: 51.0, electricity_rate: 54.1, water_rate: 62.8, poverty_rate: 58.6 },
-  { code: "SL", health_centers: 78, doctors: 45, schools: 375, literacy_rate: 60.3, electricity_rate: 68.9, water_rate: 82.4, poverty_rate: 38.5 },
-  { code: "SE", health_centers: 38, doctors: 14, schools: 195, literacy_rate: 60.7, electricity_rate: 76.4, water_rate: 55.2, poverty_rate: 66.4 },
-  { code: "TC", health_centers: 55, doctors: 21, schools: 298, literacy_rate: 50.1, electricity_rate: 51.2, water_rate: 56.8, poverty_rate: 60.2 },
-  { code: "TH", health_centers: 145, doctors: 125, schools: 720, literacy_rate: 63.0, electricity_rate: 93.7, water_rate: 88.6, poverty_rate: 28.4 },
-  { code: "ZG", health_centers: 48, doctors: 24, schools: 235, literacy_rate: 69.2, electricity_rate: 89.6, water_rate: 68.5, poverty_rate: 47.2 },
+  { code: "DK", health_centers: 312, doctors: 890, schools: 1450, literacy_rate: 68.1, electricity_rate: 98.9, water_rate: 98.9, poverty_rate: 18.5 },
+  { code: "DL", health_centers: 98, doctors: 62, schools: 520, literacy_rate: 60.2, electricity_rate: 86.0, water_rate: 97.9, poverty_rate: 48.2 },
+  { code: "FK", health_centers: 65, doctors: 28, schools: 310, literacy_rate: 63.7, electricity_rate: 75.7, water_rate: 88.7, poverty_rate: 55.7 },
+  { code: "KF", health_centers: 48, doctors: 18, schools: 245, literacy_rate: 65.6, electricity_rate: 57.3, water_rate: 97.3, poverty_rate: 62.1 },
+  { code: "KL", health_centers: 72, doctors: 35, schools: 380, literacy_rate: 69.2, electricity_rate: 81.4, water_rate: 97.7, poverty_rate: 49.8 },
+  { code: "KD", health_centers: 18, doctors: 8, schools: 72, literacy_rate: 50.4, electricity_rate: 60.7, water_rate: 81.5, poverty_rate: 71.3 },
+  { code: "KG", health_centers: 52, doctors: 22, schools: 285, literacy_rate: 54.8, electricity_rate: 58.0, water_rate: 47.1, poverty_rate: 63.8 },
+  { code: "LG", health_centers: 68, doctors: 32, schools: 345, literacy_rate: 54.2, electricity_rate: 67.8, water_rate: 98.1, poverty_rate: 52.4 },
+  { code: "MT", health_centers: 45, doctors: 19, schools: 215, literacy_rate: 51.0, electricity_rate: 54.1, water_rate: 87.9, poverty_rate: 58.6 },
+  { code: "SL", health_centers: 78, doctors: 45, schools: 375, literacy_rate: 60.3, electricity_rate: 68.9, water_rate: 92.9, poverty_rate: 38.5 },
+  { code: "SE", health_centers: 38, doctors: 14, schools: 195, literacy_rate: 60.7, electricity_rate: 76.4, water_rate: 50.1, poverty_rate: 66.4 },
+  { code: "TC", health_centers: 55, doctors: 21, schools: 298, literacy_rate: 50.1, electricity_rate: 51.2, water_rate: 75.8, poverty_rate: 60.2 },
+  { code: "TH", health_centers: 145, doctors: 125, schools: 720, literacy_rate: 63.0, electricity_rate: 93.7, water_rate: 95.0, poverty_rate: 28.4 },
+  { code: "ZG", health_centers: 48, doctors: 24, schools: 235, literacy_rate: 69.2, electricity_rate: 89.6, water_rate: 72.4, poverty_rate: 47.2 },
 ];
 
 export interface ExtendedWithExtras extends RegionExtendedData {

@@ -63,7 +63,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
               id: "osm-tiles",
               type: "raster",
               source: "osm",
-              paint: { "raster-opacity": 0.3, "raster-saturation": -0.8 },
+              paint: { "raster-opacity": 0.25, "raster-saturation": -1 },
             },
           ],
         },
@@ -96,13 +96,13 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
                 const density = r.population / r.area_km2;
                 const maxDensity = 7841;
                 const norm = Math.min(density / maxDensity, 1);
-                const red = Math.round(197 + (183 - 197) * norm);
-                const green = Math.round(168 + (71 - 168) * norm);
+                const red = Math.round(191 + (168 - 191) * norm);
+                const green = Math.round(169 + (66 - 169) * norm);
                 const blue = Math.round(125 + (42 - 125) * norm);
                 const name = Object.entries(NAME_TO_CODE).find(([, c]) => c === r.code)?.[0] || "";
                 return [name, `rgb(${red},${green},${blue})`];
               }),
-              "#E5E5E3",
+              "#E4E2DC",
             ],
             "fill-opacity": 0.85,
           },
@@ -113,7 +113,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           type: "line",
           source: "regions",
           paint: {
-            "line-color": "#FAFAF8",
+            "line-color": "#F8F7F4",
             "line-width": 1.5,
           },
         });
@@ -123,7 +123,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           type: "line",
           source: "regions",
           paint: {
-            "line-color": "#1A1A1A",
+            "line-color": "#1C1C1C",
             "line-width": 2.5,
           },
           filter: ["==", "name", ""],
@@ -135,15 +135,15 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           source: "regions",
           layout: {
             "text-field": ["get", "name"],
-            "text-size": 11,
+            "text-size": 10,
             "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
             "text-anchor": "center",
             "text-allow-overlap": false,
             "text-ignore-placement": false,
           },
           paint: {
-            "text-color": "#1A1A1A",
-            "text-halo-color": "rgba(255,255,255,0.9)",
+            "text-color": "#1C1C1C",
+            "text-halo-color": "rgba(248,247,244,0.9)",
             "text-halo-width": 1.5,
           },
         });
@@ -197,35 +197,37 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
   const hoveredRegion = hovered ? REGIONS.find((r) => r.code === hovered) : null;
 
   return (
-    <div style={{ backgroundColor: "var(--color-bg-card)", border: "1px solid var(--color-border)", overflow: "hidden" }}>
+    <div className="card" style={{ overflow: "hidden" }}>
       <div style={{ padding: "10px 16px", borderBottom: "1px solid var(--color-border)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <p style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)", margin: 0 }}>
-          {lang === "wol" ? "Nataal gox yi" : "Carte des régions"}
-        </p>
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+        <span className="label-caps">
+          {lang === "wol" ? "Nataal gox yi" : "Carte des regions"}
+        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <span style={{ fontSize: "9px", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}>faible</span>
-          <div style={{ width: "48px", height: "6px", background: "linear-gradient(to right, #C5A87D, #B7472A)", borderRadius: "1px" }} />
+          <div style={{ width: "40px", height: "4px", background: "linear-gradient(to right, #BFA97D, #A8422A)", borderRadius: "2px" }} />
           <span style={{ fontSize: "9px", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}>forte</span>
         </div>
       </div>
 
-      <div style={{ position: "relative", height: "320px" }}>
+      <div style={{ position: "relative", height: "300px" }}>
         {hoveredRegion && (
           <div style={{
             position: "absolute",
             top: "8px",
             left: "8px",
-            backgroundColor: "rgba(26,26,26,0.92)",
+            backgroundColor: "rgba(28,28,28,0.92)",
             color: "white",
-            padding: "6px 12px",
+            padding: "8px 12px",
             fontSize: "11px",
             fontFamily: "var(--font-mono)",
             zIndex: 10,
             pointerEvents: "none",
+            borderRadius: "var(--radius-sm)",
+            backdropFilter: "blur(4px)",
           }}>
             <span style={{ fontWeight: 600 }}>{hoveredRegion.name}</span>
             <span style={{ opacity: 0.7, marginLeft: "8px" }}>
-              {hoveredRegion.population.toLocaleString("fr-FR")} hab · {Math.round(hoveredRegion.population / hoveredRegion.area_km2)} hab/km²
+              {hoveredRegion.population.toLocaleString("fr-FR")} hab
             </span>
           </div>
         )}
