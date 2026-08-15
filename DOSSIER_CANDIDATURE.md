@@ -4,60 +4,71 @@
 
 ## Nom du projet
 
-**Samm Sa Gox** — Intelligence Territoriale Citoyenne
+**Sàmm Sa Gox** — Intelligence Territoriale Citoyenne
 
 ---
 
 ## Objectifs du projet
 
-Samm Sa Gox est une application web qui transforme 20 ans de donnees statistiques ANSD en diagnostics territoriaux accessibles a chaque citoyen senegalais, en wolof et en francais, sans connexion internet requise.
+Sàmm Sa Gox est une plateforme web d'aide à la décision qui transforme 20 ans de données statistiques ANSD en diagnostics territoriaux actionnables, accessibles à chaque citoyen sénégalais en wolof et en français, sans connexion internet requise.
 
-**Objectifs specifiques :**
+**Objectifs spécifiques :**
 
-1. Rendre les statistiques publiques du Senegal accessibles en wolof (88% de locuteurs) et en francais, sous forme de diagnostics territoriaux automatiques pour les 14 regions et 45 departements.
+1. Rendre les statistiques publiques du Sénégal exploitables par les élus locaux, entrepreneurs et journalistes grâce à des diagnostics automatiques pour les 14 régions et 45 départements, en wolof (88% de locuteurs) et en français.
 
-2. Eliminer la barriere technique qui empeche les elus locaux, entrepreneurs et journalistes d'exploiter les donnees ANSD en transformant les publications PDF en donnees structurees interrogeables.
+2. Créer un Indice de Développement Territorial (IDT) composite permettant de classer et comparer objectivement les territoires sur 4 dimensions (santé, éducation, économie, infrastructure).
 
-3. Demontrer une architecture de diffusion statistique a cout zero, entierement client-side, reproductible par l'ANSD pour moderniser son infrastructure de diffusion.
+3. Fournir un système d'analyse des écarts par rapport aux normes internationales (OMS, UNESCO, ODD) identifiant les déficits critiques et quantifiant les besoins en infrastructures.
 
-4. Fournir un outil de comparaison territoriale permettant aux 559 communes de se situer par rapport aux moyennes nationales et regionales sur les indicateurs cles (demographie, sante, education, economie).
+4. Permettre la génération automatique de documents de diagnostic PDC (Plan de Développement Communal) au format officiel, éliminant le recours à un consultant externe (économie de 2 à 5 millions FCFA par commune).
+
+5. Intégrer un agent intelligent bilingue capable de répondre aux questions sur les données en français et en wolof à partir des données réelles.
+
+6. Démontrer une architecture de diffusion statistique à coût zéro, entièrement client-side, reproductible par l'ANSD.
 
 ---
 
-## Methodologie de travail detaillee
+## Méthodologie de travail détaillée
 
-### Phase 1 — Collecte et structuration des donnees (Heures 0-12)
+### Phase 1 — Collecte et structuration des données (Heures 0-12)
 
-- Extraction des indicateurs via l'API World Bank (1400+ indicateurs, series temporelles 1990-2025)
-- Recuperation des limites administratives geoBoundaries (GeoJSON ADM1-ADM3, licence CC-BY)
-- Extraction des donnees regionales/departementales des publications ANSD (RGPHAE 2013, EDS-Continue, IPC)
-- Conversion en format Parquet optimise pour requetes analytiques
+- Extraction des indicateurs via l'API World Bank (14 indicateurs clés, séries temporelles 1990-2025, vérifiés août 2026)
+- Récupération des limites administratives geoBoundaries (GeoJSON ADM1, licence CC-BY 3.0, 14 régions)
+- Structuration des données régionales ANSD (RGPH 2023, EDS-Continue, IPC)
+- Conversion en format JSON optimisé pour chargement client-side
 
-### Phase 2 — Developpement du moteur analytique (Heures 12-28)
+### Phase 2 — Développement des moteurs d'analyse (Heures 12-28)
 
-- Integration de DuckDB WASM pour l'execution de requetes SQL directement dans le navigateur
-- Construction des fonctions de diagnostic territorial (calcul de rang, comparaison, narratif automatique)
-- Implementation du glossaire statistique wolof (50+ termes) et du systeme de generation de narratifs bilingues
+- Construction du moteur de diagnostic territorial (calcul de rang, comparaison, narratif automatique bilingue)
+- Développement de l'Indice de Développement Territorial (IDT) — score composite 0-100
+- Implémentation du système d'analyse des écarts (7 normes internationales, détection de déficits)
+- Module de projections 2030 par régression linéaire
+- Score d'opportunité entrepreneuriale (5 facteurs)
+- Simulateur d'impact d'investissement public
+- Agent intelligent (LLM Groq gratuit + fallback pattern matching local)
 
-### Phase 3 — Interface utilisateur (Heures 28-48)
+### Phase 3 — Interface utilisateur et cartographie (Heures 28-48)
 
-- Developpement de l'interface avec Next.js et Tailwind CSS
-- Carte interactive des regions avec coloration par densite
-- Panneaux de diagnostic avec indicateurs, barres de comparaison, et narratifs
-- Barre de recherche avec autocompletion (regions, departements, communes)
+- Développement de l'interface avec Next.js 16 et Tailwind CSS 4
+- Carte interactive MapLibre GL JS avec GeoJSON réel du Sénégal (choroplèthe par densité, labels, tooltip)
+- Panneaux de diagnostic avec indicateurs, barres de comparaison, narratifs
+- Graphiques de tendances SVG (6 séries temporelles)
+- Barre de recherche avec autocomplétion
+- Design system sobre et professionnel (Inter + Source Serif, palette terracotta/vert)
 
-### Phase 4 — PWA et deploiement (Heures 48-60)
+### Phase 4 — PWA, export PDF et déploiement (Heures 48-60)
 
-- Configuration du Service Worker pour le fonctionnement hors-ligne
-- Mise en cache des donnees statiques (Parquet, GeoJSON) dans le navigateur
-- Deploiement sur Vercel (gratuit, CDN global)
-- Tests de performance sur connexions lentes (3G)
+- Générateur de document PDC (PDF professionnel 5 pages, format officiel)
+- Configuration du Service Worker pour fonctionnement hors-ligne
+- Mise en cache des données statiques
+- Déploiement sur Vercel (gratuit, CDN global)
+- Switch bilingue français/wolof intégral
 
-### Phase 5 — Tests et preparation demo (Heures 60-72)
+### Phase 5 — Tests et préparation démo (Heures 60-72)
 
 - Tests fonctionnels sur navigateurs mobiles et desktop
-- Preparation de 3 scenarios de demonstration
-- Verification du fonctionnement offline
+- Préparation de scénarios de démonstration
+- Vérification du fonctionnement offline
 - Optimisation du temps de chargement initial
 
 ---
@@ -68,152 +79,164 @@ Samm Sa Gox est une application web qui transforme 20 ans de donnees statistique
 
 ```
 NAVIGATEUR (tout le calcul se fait ici)
-├── Next.js (interface utilisateur)
-├── DuckDB WASM (moteur SQL analytique)
-├── Observable Plot (visualisations)
-├── MapLibre GL (cartographie)
+├── Next.js 16 (interface utilisateur + routing)
+├── Moteurs d'analyse (IDT, gap analysis, projections, opportunité)
+├── MapLibre GL JS (cartographie interactive)
+├── jsPDF (export documents officiels)
+├── Agent intelligent (pattern matching local)
 └── Service Worker (cache offline)
 
-CDN GRATUIT (stockage statique uniquement)
-├── Fichiers Parquet (donnees structurees)
-├── GeoJSON (limites administratives)
-└── Assets statiques (JS, CSS, fonts)
+SERVEUR (API route légère)
+└── /api/chat → Groq API (LLM Llama 3.1, gratuit)
+
+CDN GRATUIT (fichiers statiques)
+├── GeoJSON (limites administratives réelles)
+├── JSON (données World Bank, indicateurs)
+└── Assets (JS, CSS, fonts)
 ```
 
 ### Principe fondamental
 
-Zero serveur. Zero base de donnees. Zero cout d'hebergement.
+Zéro serveur dédié. Zéro base de données. Zéro coût d'hébergement.
 
-Toute l'analytique s'execute dans le navigateur de l'utilisateur grace a DuckDB WASM. Les donnees sont stockees en format Parquet sur un CDN gratuit et chargees a la demande. Une fois en cache, l'application fonctionne entierement hors-ligne.
+L'analytique s'exécute dans le navigateur de l'utilisateur. Les données sont des fichiers statiques servis par CDN. L'agent IA utilise Groq (gratuit, illimité) avec fallback local si pas de connexion. Une fois en cache, l'application fonctionne hors-ligne.
 
 ### Flux utilisateur
 
-1. L'utilisateur arrive sur l'application → vue nationale avec indicateurs cles
-2. Il recherche ou clique sur une region/departement → diagnostic territorial instantane
-3. Le diagnostic affiche : population, densite, rang, comparaison nationale, narratif en wolof/francais
-4. Il peut basculer entre wolof et francais a tout moment
-5. En mode offline, toutes les fonctionnalites restent accessibles
+1. L'utilisateur arrive → vue nationale avec indicateurs clés, classement IDT, tendances
+2. Il recherche ou clique sur une région → diagnostic complet instantané
+3. Il consulte : IDT, analyse des écarts, projections 2030, score d'opportunité
+4. Il simule l'impact d'un investissement avec le simulateur interactif
+5. Il télécharge le diagnostic PDC au format PDF officiel
+6. Il pose des questions à l'agent intelligent en français ou wolof
+7. Il bascule entre wolof et français à tout moment
+8. En mode offline, toutes les fonctionnalités restent accessibles
 
 ---
 
-## Outils et technologies utilises
+## Outils et technologies utilisés
 
-| Composant | Technologie | Licence | Cout |
+| Composant | Technologie | Licence | Coût |
 |-----------|-------------|---------|------|
-| Framework frontend | Next.js 16 | MIT | 0 |
+| Framework frontend | Next.js 16 (App Router) | MIT | 0 |
 | Style | Tailwind CSS 4 | MIT | 0 |
-| Moteur analytique | DuckDB WASM | MIT | 0 |
-| Visualisation | Observable Plot / D3.js | ISC / BSD | 0 |
-| Cartographie | MapLibre GL JS | BSD | 0 |
-| Format de donnees | Apache Parquet | Apache 2.0 | 0 |
-| Offline | Service Workers (API navigateur) | — | 0 |
+| Cartographie | MapLibre GL JS + geoBoundaries GeoJSON | BSD / CC-BY | 0 |
+| Visualisation | SVG natif + graphiques custom | — | 0 |
 | Export PDF | jsPDF | MIT | 0 |
-| Hebergement | Vercel Free Tier | — | 0 |
-| Donnees geographiques | geoBoundaries | CC-BY 3.0 | 0 |
-| Donnees economiques | API World Bank | Open | 0 |
-| **Cout total** | | | **0 FCFA** |
+| Agent IA | Groq API (Llama 3.1 70B) | Gratuit | 0 |
+| Offline | Service Workers (API navigateur) | — | 0 |
+| Hébergement | Vercel Free Tier | — | 0 |
+| Données géographiques | geoBoundaries (ADM1) | CC-BY 3.0 | 0 |
+| Données économiques | API World Bank | Open Data | 0 |
+| Normes référence | OMS, UNESCO, ODD | Public | 0 |
+| **Coût total** | | | **0 FCFA** |
 
 ---
 
-## Methode de deploiement et d'operationnalisation
+## Méthode de déploiement et d'opérationnalisation
 
-### Deploiement
+### Déploiement
 
-1. Le code source est heberge sur GitHub (public)
-2. Vercel detecte automatiquement chaque commit et deploie en production (CI/CD)
-3. Les fichiers de donnees (Parquet, GeoJSON) sont servis depuis le CDN Vercel (100 GB/mois gratuit)
-4. Le domaine personnalise samm-sa-gox.vercel.app est immediatement accessible
+1. Le code source est hébergé sur GitHub (public)
+2. Vercel détecte automatiquement chaque commit et déploie en production (CI/CD)
+3. Les fichiers de données sont servis depuis le CDN Vercel (100 GB/mois gratuit)
+4. L'application est accessible immédiatement à une URL publique
 
-### Operationnalisation
+### Opérationnalisation
 
-- **Mise a jour des donnees** : un script automatise (`scripts/fetch-worldbank.js`) recupere les derniers indicateurs de la Banque Mondiale et regenere les fichiers Parquet. Execution mensuelle via GitHub Actions (gratuit).
-- **Ajout de nouvelles sources** : les publications ANSD sont converties en Parquet et ajoutees au depot. Pas besoin de modifier l'application.
-- **Scalabilite** : etant entierement client-side, l'application supporte un nombre illimite d'utilisateurs simultanees sans cout supplementaire.
-- **Maintenance** : zero serveur = zero maintenance serveur. Seules les donnees doivent etre mises a jour.
+- **Mise à jour des données** : un script (`scripts/fetch-worldbank.js`) récupère les derniers indicateurs. Exécution via GitHub Actions (gratuit).
+- **Ajout de nouvelles sources** : les publications ANSD sont converties en JSON et ajoutées au dépôt.
+- **Scalabilité** : entièrement client-side, l'application supporte un nombre illimité d'utilisateurs simultanés sans coût supplémentaire.
+- **Maintenance** : zéro serveur = zéro maintenance serveur. Seules les données doivent être mises à jour.
 
-### Transfert a l'ANSD
+### Transfert à l'ANSD
 
-L'architecture a ete concue pour que l'ANSD puisse :
-1. Forker le depot GitHub
-2. Ajouter ses propres donnees (RGPHAE, EDS, enquetes menages)
-3. Deployer sur sa propre infrastructure ou rester sur Vercel
-4. Etendre le glossaire wolof et ajouter d'autres langues nationales
+L'architecture a été conçue pour que l'ANSD puisse :
+1. Forker le dépôt GitHub
+2. Ajouter ses propres données (RGPH 2023, EDS, enquêtes ménages)
+3. Déployer sur sa propre infrastructure ou rester sur Vercel
+4. Étendre le glossaire wolof et ajouter d'autres langues nationales (pulaar, serer, diola)
 
 ---
 
-## Profils des membres de l'equipe
+## Profils des membres de l'équipe
 
-| Membre | Role | Competences |
+| Membre | Rôle | Compétences |
 |--------|------|-------------|
-| [PRENOM 1] | Lead Developer / Chef de projet | Developpement fullstack (React, Node.js), architecture cloud, deploiement | 
-| [PRENOM 2] | Data Engineer / Frontend | Traitement de donnees, visualisation (D3.js), integration API, UX |
-| [PRENOM 3] | Linguiste / Data Analyst | Traduction wolof, analyse statistique, tests utilisateurs |
+| [PRÉNOM 1] | Lead Developer / Chef de projet | Développement fullstack (React, Node.js), architecture cloud, déploiement |
+| [PRÉNOM 2] | Data Engineer / Frontend | Traitement de données, visualisation, intégration API, UX |
+| [PRÉNOM 3] | Linguiste / Data Analyst | Traduction wolof, analyse statistique, tests utilisateurs |
 
 ---
 
 ## Livrables attendus
 
-1. **Application web fonctionnelle** deployee et accessible publiquement
-2. **Code source** complet sur GitHub avec documentation
-3. **Pipeline de donnees** : scripts d'extraction et conversion (World Bank, ANSD PDF, geoBoundaries)
-4. **Glossaire statistique wolof** : 50+ termes avec definitions
-5. **Documentation technique** : architecture, guide de contribution, guide de mise a jour des donnees
-6. **PWA installable** sur mobile Android/iOS avec fonctionnement offline
+1. **Application web fonctionnelle** déployée et accessible publiquement
+2. **Code source complet** sur GitHub avec documentation
+3. **10 modules analytiques** : diagnostic, IDT, gap analysis, projections, opportunité, simulateur, PDC generator, chat IA, carte interactive, tendances
+4. **Glossaire statistique wolof** : 50+ termes avec définitions
+5. **Générateur PDF** : document PDC officiel téléchargeable
+6. **Agent intelligent** bilingue (LLM + données réelles)
+7. **PWA installable** sur mobile avec fonctionnement offline
+8. **Pipeline de données** : scripts d'extraction World Bank
 
 ---
 
-## Impact du projet sur la societe et sur l'ecosysteme des donnees
+## Impact du projet sur la société et sur l'écosystème des données
 
 ### Impact social direct
 
-- **559 communes** pourront generer leur diagnostic territorial sans consultant (economie estimee : 2-5 millions FCFA par commune, soit 1 a 2.8 milliards FCFA d'economie potentielle pour l'ensemble du territoire)
-- **88% de la population** (wolofones) accede pour la premiere fois aux statistiques publiques dans sa langue maternelle
-- **Journalistes de radios communautaires** disposent d'une source de donnees fiable et comprehensible pour leurs productions
-- **Entrepreneurs** peuvent evaluer le potentiel de marche d'une localite avant d'investir
+- **559 communes** peuvent générer leur diagnostic territorial sans consultant (économie estimée : 2-5 millions FCFA par commune, soit 1 à 2.8 milliards FCFA d'économie potentielle)
+- **88% de la population** (wolofones) accède pour la première fois aux statistiques publiques dans sa langue maternelle
+- **Journalistes de radios communautaires** disposent d'une source fiable et compréhensible
+- **Entrepreneurs** évaluent le potentiel de marché d'une localité grâce au score d'opportunité
+- **Élus locaux** identifient les déficits critiques grâce à l'analyse des écarts OMS/UNESCO
 
-### Impact sur l'ecosysteme des donnees
+### Impact sur l'écosystème des données
 
-- **Demonstration de faisabilite** : prouve qu'une infrastructure de diffusion statistique moderne peut fonctionner a cout zero
-- **Standard ouvert** : toute l'architecture est reproductible et transposable a d'autres pays africains
-- **Pont vers SDMX** : les donnees structurees en Parquet peuvent etre converties en flux SDMX, accelerant l'adoption du standard par l'ANSD
-- **Culture data** : en rendant les statistiques accessibles et comprehensibles, Samm Sa Gox contribue a developper une culture de decision basee sur les donnees au niveau local
+- **Aide à la décision** : premier système au Sénégal qui transforme les données en recommandations actionnables
+- **Indice composite inédit** : l'IDT (Indice de Développement Territorial) n'existe dans aucun outil existant
+- **Standard ouvert** : architecture reproductible et transposable à d'autres pays africains
+- **Pont vers SDMX** : les données structurées peuvent être converties en flux SDMX
+- **Culture data** : rend les statistiques accessibles et compréhensibles au niveau local
 
-### Alignement avec les priorites nationales
+### Alignement avec les priorités nationales
 
-- **Agenda National de Transformation 2050** : transparence et acces a l'information
-- **Decentralisation** : outillage des collectivites locales avec des donnees actualisees
-- **Souverainete numerique** : solution 100% open source, hebergeable au Senegal
+- **Agenda National de Transformation 2050** : transparence et accès à l'information
+- **Décentralisation (Acte III)** : outillage des collectivités locales avec des données actualisées
+- **Souveraineté numérique** : solution 100% open source, hébergeable au Sénégal
+- **ODD** : contribution directe aux objectifs 9 (infrastructure), 11 (villes durables), 16 (institutions)
 
 ---
 
-## Opportunites et perspectives de developpement
+## Opportunités et perspectives de développement
 
 ### Court terme (3-6 mois post-hackathon)
 
-- Integration des donnees du RGPH 2023 (nouveau recensement) des leur publication
-- Ajout des 559 communes avec donnees detaillees
-- Extension du glossaire a d'autres langues nationales (pulaar, serer, diola, mandingue)
-- Fonctionnalite d'export PDF du diagnostic (pour les dossiers PDC des communes)
+- Intégration des données complètes du RGPH 2023 à la maille commune
+- Ajout des 559 communes avec données détaillées
+- Extension du glossaire à d'autres langues nationales (pulaar, serer, diola, mandingue)
+- Ajout de données satellites (NDVI, pluviométrie) via Open-Meteo API
 
 ### Moyen terme (6-12 mois)
 
-- Integration d'un module de requetes en langage naturel (wolof/francais → SQL) via un modele de traduction leger
-- Ajout de donnees thematiques : sante (carte sanitaire), education (carte scolaire), agriculture (donnees campagnes)
-- API publique SDMX pour permettre a d'autres applications de consommer les donnees structurees
+- Intégration de données thématiques : carte sanitaire, carte scolaire, données agricoles
+- API publique SDMX pour interopérabilité avec les systèmes internationaux
 - Partenariat avec les radios communautaires pour la diffusion des diagnostics en wolof
+- Module d'alertes : notifications quand un indicateur dépasse un seuil
 
 ### Long terme (12-24 mois)
 
-- Adoption par l'ANSD comme outil officiel de diffusion complementaire
-- Extension a d'autres pays de l'UEMOA utilisant le meme modele
-- Module de suivi temporel : alertes automatiques quand un indicateur evolue significativement
-- Interface vocale en wolof (exploitant les modeles ASR Kiriku-Wolof)
-- Formation des agents statistiques regionaux a l'utilisation et la mise a jour de l'outil
+- Adoption par l'ANSD comme outil officiel de diffusion complémentaire
+- Extension à d'autres pays de l'UEMOA utilisant le même modèle
+- Interface vocale en wolof (exploitant les modèles ASR Kiriku-Wolof)
+- Formation des agents statistiques régionaux
 
-### Modele de perennisation
+### Modèle de pérennisation
 
-Le projet est concu pour etre perenne sans financement :
-- Hebergement gratuit (Vercel/Cloudflare)
-- Donnees publiques (World Bank API, ANSD)
-- Code open source (communaute de contributeurs)
-- Pas de dependance a des API payantes ou services proprietaires
+Le projet est conçu pour être pérenne sans financement :
+- Hébergement gratuit (Vercel/Cloudflare)
+- Données publiques (World Bank API, ANSD, OMS)
+- Code open source (communauté de contributeurs)
+- Pas de dépendance à des API payantes ou services propriétaires
+- Agent IA sur Groq (gratuit, sans limite)

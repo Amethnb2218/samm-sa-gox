@@ -14,217 +14,359 @@ export default function PDCGenerator({ diagnostic, lang }: PDCGeneratorProps) {
     const { jsPDF } = await import("jspdf");
     const doc = new jsPDF({ unit: "mm", format: "a4" });
 
-    const margin = 20;
+    const margin = 18;
     const pageW = 210;
     const contentW = pageW - 2 * margin;
-    let y = 20;
+    let y = 0;
+
+    const TERRACOTTA = [183, 71, 42] as const;
+    const DARK = [26, 26, 26] as const;
+    const MUTED = [100, 100, 100] as const;
+    const LIGHT_BG = [250, 250, 248] as const;
+    const GREEN = [45, 95, 45] as const;
+    const RED = [180, 30, 30] as const;
+    const AMBER = [180, 120, 0] as const;
+
+    function addFooter(pageNum: number, totalPages: number) {
+      doc.setDrawColor(220, 220, 218);
+      doc.line(margin, 282, pageW - margin, 282);
+      doc.setFontSize(7);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(...MUTED);
+      doc.text(`Sàmm Sa Gox — Intelligence Territoriale Citoyenne`, margin, 287);
+      doc.text(`${diagnostic.name} — Diagnostic Territorial`, pageW / 2, 287, { align: "center" });
+      doc.text(`${pageNum}/${totalPages}`, pageW - margin, 287, { align: "right" });
+    }
+
+    function newPage() {
+      doc.addPage();
+      y = 25;
+    }
 
     function checkPage(needed = 20) {
-      if (y + needed > 275) { doc.addPage(); y = 20; }
+      if (y + needed > 270) { newPage(); }
     }
 
-    function heading(text: string, size = 14) {
-      checkPage(15);
-      doc.setFontSize(size);
+    function sectionTitle(num: string, text: string) {
+      checkPage(18);
+      y += 4;
+      doc.setFillColor(...TERRACOTTA);
+      doc.rect(margin, y - 4, 4, 12, "F");
+      doc.setFontSize(12);
       doc.setFont("helvetica", "bold");
-      doc.setTextColor(26, 26, 26);
-      doc.text(text, margin, y);
-      y += size * 0.4 + 4;
-    }
-
-    function para(text: string) {
-      checkPage(10);
-      doc.setFontSize(9.5);
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(50, 50, 50);
-      const lines = doc.splitTextToSize(text, contentW);
-      for (const line of lines) {
-        checkPage(5);
-        doc.text(line, margin, y);
-        y += 4.5;
-      }
-      y += 3;
-    }
-
-    function keyValue(key: string, value: string) {
-      checkPage(6);
-      doc.setFontSize(9.5);
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(100, 100, 100);
-      doc.text(key, margin + 3, y);
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor(26, 26, 26);
-      doc.text(value, margin + 70, y);
+      doc.setTextColor(...DARK);
+      doc.text(`${num}. ${text}`, margin + 8, y + 4);
+      y += 14;
+      doc.setDrawColor(220, 220, 218);
+      doc.line(margin, y, pageW - margin, y);
       y += 6;
     }
 
-    function line() {
-      y += 2;
-      doc.setDrawColor(220, 220, 218);
-      doc.line(margin, y, pageW - margin, y);
-      y += 5;
+    function subTitle(text: string) {
+      checkPage(12);
+      doc.setFontSize(9.5);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(...DARK);
+      doc.text(text, margin, y);
+      y += 6;
     }
 
-    // === PAGE DE GARDE ===
-    doc.setFontSize(10);
+    function para(text: string, indent = 0) {
+      checkPage(8);
+      doc.setFontSize(9);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(60, 60, 60);
+      const lines = doc.splitTextToSize(text, contentW - indent);
+      for (const line of lines) {
+        checkPage(5);
+        doc.text(line, margin + indent, y);
+        y += 4.2;
+      }
+      y += 2;
+    }
+
+    function tableRow(cells: string[], widths: number[], isHeader = false, statusColor?: readonly [number, number, number]) {
+      checkPage(8);
+      const rowH = 7;
+      if (isHeader) {
+        doc.setFillColor(...LIGHT_BG);
+        doc.rect(margin, y - 4.5, contentW, rowH, "F");
+      }
+      doc.setFontSize(8.5);
+      let x = margin;
+      for (let i = 0; i < cells.length; i++) {
+        doc.setFont("helvetica", isHeader ? "bold" : "normal");
+        if (statusColor && i === 0) {
+          doc.setTextColor(...statusColor);
+        } else {
+          doc.setTextColor(isHeader ? DARK[0] : 60, isHeader ? DARK[1] : 60, isHeader ? DARK[2] : 60);
+        }
+        doc.text(cells[i], x + 2, y - 1);
+        x += widths[i];
+      }
+      doc.setDrawColor(235, 235, 233);
+      doc.line(margin, y + 1, pageW - margin, y + 1);
+      y += rowH;
+    }
+
+    function keyValue(key: string, value: string, indent = 0) {
+      checkPage(6);
+      doc.setFontSize(9);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(...MUTED);
+      doc.text(key, margin + indent, y);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(...DARK);
+      doc.text(value, margin + 65 + indent, y);
+      y += 5.5;
+    }
+
+    // ============================================
+    // PAGE DE GARDE
+    // ============================================
+    doc.setFillColor(...TERRACOTTA);
+    doc.rect(0, 0, pageW, 8, "F");
+
+    doc.setFontSize(9);
     doc.setFont("helvetica", "normal");
-    doc.setTextColor(100, 100, 100);
-    doc.text("REPUBLIQUE DU SENEGAL", margin, 30);
-    doc.text("Un Peuple - Un But - Une Foi", margin, 36);
+    doc.setTextColor(...MUTED);
+    doc.text("REPUBLIQUE DU SENEGAL", margin, 25);
+    doc.text("Un Peuple — Un But — Une Foi", margin, 31);
+    doc.setDrawColor(220, 220, 218);
+    doc.line(margin, 36, margin + 40, 36);
 
-    doc.setFontSize(10);
-    doc.text("MINISTERE DES COLLECTIVITES TERRITORIALES", margin, 50);
+    doc.setFontSize(9);
+    doc.text("Agence Nationale de la Statistique", margin, 45);
+    doc.text("et de la Démographie (ANSD)", margin, 50);
 
-    doc.setFontSize(20);
+    doc.setFontSize(26);
     doc.setFont("helvetica", "bold");
-    doc.setTextColor(183, 71, 42);
-    doc.text("DIAGNOSTIC TERRITORIAL", margin, 75);
+    doc.setTextColor(...TERRACOTTA);
+    doc.text("DIAGNOSTIC", margin, 80);
+    doc.text("TERRITORIAL", margin, 92);
 
-    doc.setFontSize(16);
-    doc.setTextColor(26, 26, 26);
-    doc.text(diagnostic.name.toUpperCase(), margin, 88);
+    doc.setFontSize(18);
+    doc.setTextColor(...DARK);
+    doc.text(diagnostic.name.toUpperCase(), margin, 112);
 
     doc.setFontSize(11);
     doc.setFont("helvetica", "normal");
-    doc.setTextColor(100, 100, 100);
-    doc.text(`${diagnostic.type === "region" ? "Region" : "Departement"} — ${diagnostic.region}`, margin, 97);
+    doc.setTextColor(...MUTED);
+    doc.text(`${diagnostic.type === "region" ? "Région" : "Département"} — ${diagnostic.region}`, margin, 122);
+
+    // Info box
+    doc.setFillColor(...LIGHT_BG);
+    doc.rect(margin, 140, contentW, 35, "F");
+    doc.setDrawColor(...TERRACOTTA);
+    doc.rect(margin, 140, contentW, 35, "S");
 
     doc.setFontSize(9);
-    doc.text("Document genere automatiquement", margin, 120);
-    doc.text("Source des donnees : ANSD (RGPH 2023), Banque Mondiale, OMS, UNESCO", margin, 126);
-    doc.text("Plateforme : Samm Sa Gox — Intelligence Territoriale Citoyenne", margin, 132);
-    doc.text(`Date de generation : Aout 2026`, margin, 138);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(...DARK);
+    doc.text("INFORMATIONS DU DOCUMENT", margin + 5, 149);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(...MUTED);
+    doc.text(`Date de génération : Août 2026`, margin + 5, 157);
+    doc.text(`Sources : ANSD (RGPH 2023), Banque Mondiale, OMS, UNESCO`, margin + 5, 163);
+    doc.text(`Plateforme : Sàmm Sa Gox — Intelligence Territoriale Citoyenne`, margin + 5, 169);
 
-    doc.setFontSize(8);
-    doc.setTextColor(150, 150, 150);
-    doc.text("Ce document peut etre utilise comme base statistique pour le Plan de Developpement", margin, 260);
-    doc.text("Communal (PDC) conformement aux dispositions du Code des Collectivites Territoriales.", margin, 265);
+    doc.setFontSize(8.5);
+    doc.setTextColor(...MUTED);
+    doc.text("Ce document constitue une base statistique pour l'élaboration du Plan de", margin, 210);
+    doc.text("Développement Communal (PDC) conformément aux dispositions du Code", margin, 215);
+    doc.text("des Collectivités Territoriales du Sénégal.", margin, 220);
 
-    // === PAGE 2 : DONNEES DE BASE ===
-    doc.addPage();
-    y = 20;
+    doc.setFillColor(...TERRACOTTA);
+    doc.rect(0, 289, pageW, 8, "F");
 
-    heading("1. DONNEES GENERALES", 14);
-    line();
+    // ============================================
+    // PAGE 2 : DONNÉES GÉNÉRALES
+    // ============================================
+    newPage();
+
+    sectionTitle("01", "DONNÉES GÉNÉRALES");
+
     keyValue("Territoire :", diagnostic.name);
-    keyValue("Type :", diagnostic.type === "region" ? "Region" : "Departement");
-    keyValue("Region de rattachement :", diagnostic.region);
+    keyValue("Type :", diagnostic.type === "region" ? "Région" : "Département");
+    keyValue("Région :", diagnostic.region);
     keyValue("Population (2026) :", diagnostic.population.toLocaleString("fr-FR") + " habitants");
-    keyValue("Superficie :", diagnostic.area_km2.toLocaleString("fr-FR") + " km2");
-    keyValue("Densite :", Math.round(diagnostic.density) + " hab/km2");
-    keyValue("Rang densite (national) :", `#${diagnostic.rank.value} sur ${diagnostic.rank.total}`);
+    keyValue("Superficie :", diagnostic.area_km2.toLocaleString("fr-FR") + " km²");
+    keyValue("Densité :", Math.round(diagnostic.density) + " hab/km²");
+    keyValue("Rang national :", `#${diagnostic.rank.value} sur ${diagnostic.rank.total} (par densité)`);
 
-    y += 5;
-    heading("2. POSITIONNEMENT NATIONAL", 14);
-    line();
+    y += 8;
+    sectionTitle("02", "POSITIONNEMENT NATIONAL");
+
+    const colWidths = [60, 40, 40, 34];
+    tableRow(["Indicateur", "Valeur", "Moy. nationale", "Écart"], colWidths, true);
 
     for (const ind of diagnostic.indicators) {
-      keyValue(
-        ind.label_fr + " :",
-        `${ind.value.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} ${ind.unit} (moy. nat. : ${ind.national_avg.toLocaleString("fr-FR", { maximumFractionDigits: 1 })})`
+      const ecart = ind.value - ind.national_avg;
+      const ecartStr = (ecart >= 0 ? "+" : "") + ecart.toLocaleString("fr-FR", { maximumFractionDigits: 1 });
+      tableRow(
+        [
+          ind.label_fr,
+          `${ind.value.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} ${ind.unit}`,
+          `${ind.national_avg.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} ${ind.unit}`,
+          ecartStr,
+        ],
+        colWidths,
+        false,
+        ecart >= 0 ? GREEN : RED
       );
     }
 
-    // === PAGE 3 : ANALYSE DES ECARTS ===
-    doc.addPage();
-    y = 20;
+    y += 8;
+    sectionTitle("03", "SYNTHÈSE NARRATIVE");
+    const narrative = generateNarrative(
+      diagnostic.name,
+      diagnostic.population,
+      diagnostic.region,
+      {
+        density: diagnostic.density,
+        nationalAvgDensity: REGIONS.reduce((s, r) => s + r.population, 0) / REGIONS.reduce((s, r) => s + r.area_km2, 0),
+      },
+      "fr"
+    );
+    para(narrative);
 
-    heading("3. ANALYSE DES ECARTS — CONFORMITE AUX NORMES", 14);
-    line();
+    // ============================================
+    // PAGE 3 : ANALYSE DES ÉCARTS
+    // ============================================
+    newPage();
+
+    sectionTitle("04", "ANALYSE DES ÉCARTS — NORMES INTERNATIONALES");
+
+    para("Comparaison des indicateurs régionaux aux standards internationaux (OMS, UNESCO, ODD). Les écarts identifient les priorités d'investissement.");
+    y += 3;
+
+    const gapWidths = [12, 52, 30, 28, 52];
+    tableRow(["", "Indicateur", "Valeur", "Norme", "Recommandation"], gapWidths, true);
 
     const gaps = computeGaps(diagnostic.code, diagnostic.population);
     for (const gap of gaps) {
-      checkPage(18);
-      doc.setFontSize(9.5);
-      doc.setFont("helvetica", "bold");
-      const statusText = gap.status === "critique" ? "[CRITIQUE]" : gap.status === "alerte" ? "[ALERTE]" : "[CONFORME]";
-      const statusColor = gap.status === "critique" ? [180, 30, 30] : gap.status === "alerte" ? [180, 120, 0] : [45, 95, 45];
-      doc.setTextColor(statusColor[0], statusColor[1], statusColor[2]);
-      doc.text(statusText, margin, y);
-      doc.setTextColor(26, 26, 26);
-      doc.text(gap.norm.label_fr, margin + 25, y);
-      y += 5;
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(80, 80, 80);
-      doc.text(
-        `Valeur actuelle : ${gap.current_value.toFixed(2)} | Norme : ${gap.norm.standard} (${gap.norm.source})`,
-        margin + 5,
-        y
+      const statusIcon = gap.status === "critique" ? "●" : gap.status === "alerte" ? "◐" : "○";
+      const statusColor = gap.status === "critique" ? RED : gap.status === "alerte" ? AMBER : GREEN;
+      tableRow(
+        [
+          statusIcon,
+          gap.norm.label_fr,
+          gap.current_value.toFixed(1),
+          `${gap.norm.standard} (${gap.norm.source})`,
+          gap.recommendation_fr || "Conforme",
+        ],
+        gapWidths,
+        false,
+        statusColor
       );
-      y += 4.5;
-      if (gap.recommendation_fr) {
-        doc.setFont("helvetica", "italic");
-        doc.text(`> ${gap.recommendation_fr}`, margin + 5, y);
-        y += 4.5;
+    }
+
+    y += 6;
+    para("● Critique   ◐ Alerte   ○ Conforme", 0);
+
+    // ============================================
+    // PAGE 4 : OPPORTUNITÉ ÉCONOMIQUE
+    // ============================================
+    newPage();
+
+    sectionTitle("05", "SCORE D'OPPORTUNITÉ ÉCONOMIQUE");
+
+    const opp = computeOpportunityScore(diagnostic.code, diagnostic.population, diagnostic.area_km2);
+    const catLabels: Record<string, string> = {
+      tres_forte: "TRÈS FORTE",
+      forte: "FORTE",
+      moderee: "MODÉRÉE",
+      faible: "FAIBLE",
+    };
+
+    // Score box
+    doc.setFillColor(...LIGHT_BG);
+    doc.rect(margin, y - 3, contentW, 18, "F");
+    doc.setFontSize(24);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(...TERRACOTTA);
+    doc.text(`${Math.round(opp.overall)}/100`, margin + 5, y + 8);
+    doc.setFontSize(11);
+    doc.setTextColor(...DARK);
+    doc.text(catLabels[opp.category] || opp.category, margin + 40, y + 8);
+    y += 22;
+
+    subTitle("Décomposition par facteur :");
+    y += 2;
+
+    const factorWidths = [65, 25, 84];
+    tableRow(["Facteur", "Score", "Détail"], factorWidths, true);
+    for (const f of opp.factors) {
+      tableRow([f.label_fr, `${Math.round(f.score)}/100`, f.detail], factorWidths);
+    }
+
+    y += 10;
+    sectionTitle("06", "RECOMMANDATIONS STRATÉGIQUES");
+
+    const critiques = gaps.filter((g) => g.status === "critique");
+    const alertes = gaps.filter((g) => g.status === "alerte");
+
+    if (critiques.length > 0) {
+      subTitle("Priorités immédiates (déficits critiques) :");
+      for (const g of critiques) {
+        para(`• ${g.recommendation_fr}`, 3);
       }
       y += 3;
     }
 
-    // === PAGE 4 : OPPORTUNITE ECONOMIQUE ===
-    doc.addPage();
-    y = 20;
-
-    heading("4. SCORE D'OPPORTUNITE ECONOMIQUE", 14);
-    line();
-
-    const opp = computeOpportunityScore(diagnostic.code, diagnostic.population, diagnostic.area_km2);
-    const catLabels = { tres_forte: "TRES FORTE", forte: "FORTE", moderee: "MODEREE", faible: "FAIBLE" };
-
-    keyValue("Score global :", `${Math.round(opp.overall)}/100`);
-    keyValue("Categorie :", catLabels[opp.category]);
-    y += 5;
-
-    para("Decomposition par facteur :");
-    for (const f of opp.factors) {
-      keyValue(f.label_fr + " :", `${Math.round(f.score)}/100 — ${f.detail}`);
-    }
-
-    y += 5;
-    heading("5. RECOMMANDATIONS", 14);
-    line();
-
-    const critiques = gaps.filter(g => g.status === "critique");
-    const alertes = gaps.filter(g => g.status === "alerte");
-
-    if (critiques.length > 0) {
-      para("Priorites immediates (deficits critiques) :");
-      for (const g of critiques) {
-        para(`  - ${g.recommendation_fr}`);
-      }
-    }
     if (alertes.length > 0) {
-      para("Actions a moyen terme (alertes) :");
+      subTitle("Actions à moyen terme (alertes) :");
       for (const g of alertes) {
-        para(`  - ${g.recommendation_fr}`);
+        para(`• ${g.recommendation_fr}`, 3);
       }
+      y += 3;
     }
 
-    para("Ce diagnostic peut servir de base au Plan de Developpement Communal (PDC) et aux demandes de financement aupres des partenaires au developpement.");
+    para("Ce diagnostic constitue une base pour l'élaboration du Plan de Développement Communal (PDC) et les demandes de financement auprès des partenaires au développement (Banque Mondiale, AFD, BAD, UE).");
 
-    // === FOOTER ===
-    const pageCount = doc.getNumberOfPages();
-    for (let i = 1; i <= pageCount; i++) {
+    // ============================================
+    // FOOTERS
+    // ============================================
+    const totalPages = doc.getNumberOfPages();
+    for (let i = 1; i <= totalPages; i++) {
       doc.setPage(i);
-      doc.setFontSize(7);
-      doc.setTextColor(150, 150, 150);
-      doc.text(
-        `Samm Sa Gox — Diagnostic Territorial | ${diagnostic.name} | Page ${i}/${pageCount}`,
-        margin,
-        290
-      );
+      if (i > 1) addFooter(i - 1, totalPages - 1);
     }
 
-    doc.save(`diagnostic-pdc-${diagnostic.name.toLowerCase().replace(/\s+/g, "-")}.pdf`);
+    doc.save(`diagnostic-territorial-${diagnostic.name.toLowerCase().replace(/\s+/g, "-")}-2026.pdf`);
   }
 
   return (
-    <button
-      onClick={generate}
-      className="w-full px-4 py-3 text-sm font-medium bg-[var(--color-terracotta)] text-white hover:opacity-90 transition-opacity font-[var(--font-mono)] tracking-wide"
-    >
-      {lang === "wol"
-        ? "GENERER DIAGNOSTIC PDC (PDF)"
-        : "GENERER DIAGNOSTIC PDC (PDF)"}
-    </button>
+    <div style={{ backgroundColor: "var(--color-bg-card)", border: "1px solid var(--color-border)" }}>
+      <div style={{ padding: "12px 16px", borderBottom: "1px solid var(--color-border)" }}>
+        <p style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)", margin: 0 }}>
+          {lang === "wol" ? "Sàkku PDC" : "Générateur de document PDC"}
+        </p>
+        <p style={{ fontSize: "11px", color: "var(--color-text-muted)", marginTop: "4px" }}>
+          {lang === "wol"
+            ? "Wàcc bataaxal PDC bi ci 1 jëm — 5 xët, prêt pour préfecture"
+            : "Document de 5 pages au format officiel, prêt pour dépôt en préfecture"}
+        </p>
+      </div>
+      <div style={{ padding: "12px 16px" }}>
+        <button
+          onClick={generate}
+          style={{
+            width: "100%",
+            padding: "12px 16px",
+            fontSize: "12px",
+            fontWeight: 600,
+            fontFamily: "var(--font-mono)",
+            letterSpacing: "0.03em",
+            backgroundColor: "var(--color-terracotta)",
+            color: "white",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          {lang === "wol" ? "TÉLÉCHARGER DIAGNOSTIC PDC (PDF)" : "TÉLÉCHARGER DIAGNOSTIC PDC (PDF)"}
+        </button>
+      </div>
+    </div>
   );
 }

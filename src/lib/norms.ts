@@ -111,6 +111,32 @@ export const REGION_EXTENDED: RegionExtendedData[] = [
   { code: "ZG", health_centers: 48, doctors: 24, schools: 235, literacy_rate: 45.2, electricity_rate: 58.7, water_rate: 68.5, poverty_rate: 47.2 },
 ];
 
+export interface ExtendedWithExtras extends RegionExtendedData {
+  urbanization_rate: number;
+  youth_pct: number;
+  water_access_pct: number;
+  electricity_pct: number;
+}
+
+const URBANIZATION: Record<string, number> = {
+  DK: 96, DL: 22, FK: 15, KF: 12, KL: 28, KD: 8, KG: 16, LG: 18, MT: 14, SL: 35, SE: 12, TC: 15, TH: 52, ZG: 32,
+};
+const YOUTH: Record<string, number> = {
+  DK: 48, DL: 57, FK: 56, KF: 58, KL: 55, KD: 55, KG: 56, LG: 54, MT: 55, SL: 52, SE: 57, TC: 56, TH: 50, ZG: 53,
+};
+
+export function getRegionExtended(code: string): ExtendedWithExtras | null {
+  const data = REGION_EXTENDED.find((r) => r.code === code);
+  if (!data) return null;
+  return {
+    ...data,
+    urbanization_rate: URBANIZATION[code] || 20,
+    youth_pct: YOUTH[code] || 55,
+    water_access_pct: data.water_rate,
+    electricity_pct: data.electricity_rate,
+  };
+}
+
 export interface GapResult {
   norm: Norm;
   current_value: number;
