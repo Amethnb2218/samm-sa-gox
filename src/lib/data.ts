@@ -71,7 +71,7 @@ export const REGIONS: Region[] = [
     { code: "DK-RU", name: "Rufisque", region: "Dakar", population: 491101, area_km2: 318 },
     { code: "DK-KE", name: "Keur Massar", region: "Dakar", population: 820000, area_km2: 40 },
   ]},
-  { code: "DL", name: "Diourbel", population: 2080335, area_km2: 4860, departments: [
+  { code: "DL", name: "Diourbel", population: 2080333, area_km2: 4860, departments: [
     { code: "DL-DI", name: "Diourbel", region: "Diourbel", population: 230000, area_km2: 1181 },
     { code: "DL-BA", name: "Bambey", region: "Diourbel", population: 395000, area_km2: 1351 },
     { code: "DL-MB", name: "Mbacké", region: "Diourbel", population: 1455335, area_km2: 2328 },
@@ -128,7 +128,7 @@ export const REGIONS: Region[] = [
     { code: "TC-GD", name: "Goudiry", region: "Tambacounda", population: 170151, area_km2: 9213 },
     { code: "TC-KP", name: "Koumpentoum", region: "Tambacounda", population: 120000, area_km2: 7000 },
   ]},
-  { code: "TH", name: "Thiès", population: 2463678, area_km2: 6586, departments: [
+  { code: "TH", name: "Thiès", population: 2463677, area_km2: 6586, departments: [
     { code: "TH-TH", name: "Thiès", region: "Thiès", population: 1010000, area_km2: 1880 },
     { code: "TH-MB", name: "Mbour", region: "Thiès", population: 1020000, area_km2: 1725 },
     { code: "TH-TI", name: "Tivaouane", region: "Thiès", population: 433678, area_km2: 2981 },

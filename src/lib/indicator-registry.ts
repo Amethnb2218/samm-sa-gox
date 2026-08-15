@@ -133,9 +133,13 @@ export const NATIONAL_REGISTRY: RegisteredIndicator[] = [
 // la valeur est marquée "estime" et non "officiel".
 // =============================================================================
 
-// Source vérifiée : ANSD — RGPH-5, 18 août 2023 (résultats définitifs)
-// Référence : https://www.ansd.sn/recensement/rgph-5-2023
-// Total vérifié : 18 126 390
+// Source vérifiée : ANSD — RGPH-5, 2023 (résultats définitifs)
+// Dénombrement : 15 mai – 24 juin 2023
+// Publication : Rapport définitif, Thème I, Tableau I-15
+// Référence : https://www.ansd.sn/rapports/rgph-5-2023
+// Catalogue ANADS : SEN-ANSD-RGPH5-2023-V1.1
+// Total vérifié dans le PDF officiel : 18 126 390
+// Données extraites du Chapitre-1_ETAT-STRUCTURE-POPULATION-Rapport-def-RGPH-5.pdf
 export const REGIONAL_POPULATION_RGPH5: {
   code: string;
   name: string;
