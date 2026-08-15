@@ -1,91 +1,118 @@
-# Sàmm Sa Gox — Intelligence Territoriale Citoyenne
+# Sàmm Sa Gox — Comprendre. Comparer. Décider.
 
-Plateforme de diagnostic territorial pour les 14 régions et 45 départements du Sénégal.  
-Bilingue wolof/français. Fonctionne hors-ligne. Zéro serveur. Zéro coût.
+Le premier moteur d'intelligence territoriale du Sénégal transformant 20 ans de données ANSD en diagnostics, comparaisons, explications et scénarios d'action — traçables jusqu'à chaque chiffre officiel.
 
 **Challenge 20 ans ANSD — Hackathon 2026**
 
 ---
 
+## Concept
+
+Une question → des données ANSD → une réponse territoriale justifiée → une décision.
+
+Le pipeline :
+
+```
+DONNÉES ANSD
+     ↓
+CONFIANCE (officiel / calculé / estimé)
+     ↓
+COMPARAISON (territoires similaires)
+     ↓
+ÉCARTS (détection de problèmes)
+     ↓
+EXPLICATION (pourquoi ce score ?)
+     ↓
+SCÉNARIOS (et si... ?)
+     ↓
+ACTION (PDF, recommandations)
+```
+
+---
+
 ## Fonctionnalités
 
-### Diagnostic Territorial
-Fiche complète par région et département : population, densité, rang national, comparaison avec la moyenne nationale. Narratif explicatif généré automatiquement en wolof et en français.
+### 1. Observer — Diagnostic territorial
+Fiche complète par région et département. Population, densité, rang national, détection automatique des problèmes prioritaires. Forces et faiblesses identifiées. Narratif en wolof et français.
 
-### Indice de Développement Territorial (IDT)
-Score composite 0-100 basé sur 4 dimensions (santé, éducation, économie, infrastructure). Méthodologie PNUD adaptée. Classement des 14 régions.
+### 2. Comparer — Territoires similaires
+Algorithme de cosine similarity sur 6 dimensions (densité, urbanisation, jeunesse, alphabétisation, couverture sanitaire, accès eau). Identifie les territoires aux caractéristiques comparables et les défis communs.
 
-### Analyse des Écarts (Gap Analysis)
-Compare chaque territoire aux normes internationales OMS, UNESCO et ODD. Identifie les déficits critiques et quantifie les besoins.
+### 3. Expliquer — Décomposition transparente
+Chaque score est décomposé : pourquoi ce résultat ? Combien de points pour chaque facteur ? Quelle source ? Quelle méthodologie ? Pas de boîte noire.
 
-### Projections 2030
-Régression linéaire sur données historiques. Projette les besoins futurs en postes de santé, écoles, et infrastructures.
+### 4. Agir — Scénarios et PDF
+Simulateur "Et si...?" (population +10%, +5 postes de santé, +10 écoles). Générateur de document PDC (5 pages, format officiel). Export PDF prêt pour dépôt en préfecture.
 
-### Score d'Opportunité Entrepreneuriale
-Évalue le potentiel économique sur 5 facteurs : taille du marché, pouvoir d'achat, infrastructures, lacunes en services, niveau d'éducation.
+### 5. 20 ans — Évolution temporelle
+Comment le territoire a changé depuis la création de l'ANSD. 6 indicateurs nationaux avec évolution et sources datées.
 
-### Simulateur d'Impact
-Simule l'effet d'un investissement public (santé, éducation, eau) avec estimation du coût et mesure de l'impact sur les indicateurs.
+### Data Trust Layer
+Chaque chiffre affiche son niveau de confiance :
+- **OFFICIEL** — Donnée directe ANSD (RGPH-5, carte sanitaire)
+- **CALCULÉ** — Dérivé de données officielles avec formule documentée
+- **ESTIMÉ** — Approximation avec limites identifiées
 
-### Générateur de Document PDC
-Génère un PDF de 5 pages au format officiel, prêt pour dépôt en préfecture. Inclut diagnostic, analyse des écarts, et recommandations.
+### Moteur de questions guidées
+L'utilisateur ne navigue pas dans des menus. Il pose un besoin :
+- "Quels sont les principaux problèmes ?"
+- "Où investir ?"
+- "Quels territoires ressemblent au mien ?"
+- "Quels progrès en 20 ans ?"
 
-### Agent Intelligent (Chat-to-Data)
-Interrogez les données en français ou en wolof. Répond avec des chiffres réels. Motorisé par Groq (Llama 3.1, gratuit) avec fallback local.
-
-### PWA Offline
-Installable sur mobile. Fonctionne sans connexion internet après le premier chargement.
+Le système répond avec les données ANSD.
 
 ---
 
 ## Stack technique
 
-| Composant | Technologie |
-|-----------|-------------|
-| Framework | Next.js 16 (App Router) |
-| Style | Tailwind CSS 4 |
-| Analytique | DuckDB WASM (client-side) |
-| Visualisation | SVG natif + graphiques custom |
-| LLM | Groq API (Llama 3.1, gratuit) |
-| Export PDF | jsPDF |
-| Offline | Service Workers (PWA) |
-| Hébergement | Vercel (gratuit) |
+| Composant | Technologie | Coût |
+|-----------|-------------|------|
+| Framework | Next.js 16 (App Router) | 0 |
+| Style | Tailwind CSS 4 | 0 |
+| Cartographie | MapLibre GL JS + geoBoundaries GeoJSON | 0 |
+| Moteurs | gap-engine, similarity-engine, explain-engine, scenario-engine, timeline-engine | 0 |
+| Export PDF | jsPDF | 0 |
+| Agent IA | Groq API (Llama 3.1, gratuit) | 0 |
+| Offline | Service Workers (PWA) | 0 |
+| Hébergement | Vercel Free Tier | 0 |
+| **Total** | | **0 FCFA** |
+
+---
+
+## Sources de données
+
+- **ANSD — RGPH-5 2023** : Population, éducation, habitat, eau, électricité
+- **ANSD — Carte sanitaire 2023** : Structures de santé par région
+- **ANSD — Carte scolaire 2023** : Établissements par localisation
+- **ANSD — Comptes régionaux** : PIB régional
+- **OMS** : Normes de couverture sanitaire
+- **UNESCO / ODD** : Cibles éducation, eau, énergie
 
 ---
 
 ## Installation
 
 ```bash
-git clone https://github.com/[VOTRE-REPO]/samm-sa-gox.git
+git clone https://github.com/Amethnb2218/samm-sa-gox.git
 cd samm-sa-gox
 npm install
 ```
 
 ## Configuration
 
-Créer un fichier `.env.local` :
-
+Créer `.env.local` :
 ```
 GROQ_API_KEY=votre_cle_groq
 ```
-
-Obtenir une clé gratuite : https://console.groq.com/keys
-
-L'agent intelligent fonctionne sans clé (fallback sur le moteur local), mais avec la clé il répond à toute question.
+Clé gratuite : https://console.groq.com/keys (optionnel — le moteur local fonctionne sans)
 
 ## Lancement
 
 ```bash
 npm run dev
 ```
-
 Ouvrir http://localhost:3000
-
-## Mise à jour des données
-
-```bash
-node scripts/fetch-worldbank.js
-```
 
 ## Déploiement
 
@@ -93,42 +120,40 @@ node scripts/fetch-worldbank.js
 npx vercel --prod
 ```
 
-Ou connecter le dépôt GitHub à Vercel pour déploiement automatique à chaque commit.
-
----
-
-## Sources de données
-
-- **ANSD** — RGPH 2023, EDS-Continue, IPC mensuel
-- **Banque Mondiale** — API World Development Indicators (14 indicateurs, séries 1990-2025)
-- **geoBoundaries** — Limites administratives ADM1-ADM3 (CC-BY 3.0)
-- **OMS / UNESCO / ODD** — Normes de référence pour l'analyse des écarts
-
 ---
 
 ## Architecture
 
 ```
-NAVIGATEUR (tout le calcul se fait ici)
-├── Next.js (interface utilisateur)
-├── DuckDB WASM (moteur SQL analytique)
-├── Service Worker (cache offline)
-└── Moteur de chat local (pattern matching)
+NAVIGATEUR (tout le calcul ici)
+├── Next.js (interface + routing)
+├── Moteurs d'analyse (7 engines)
+│   ├── territory-engine (orchestrateur)
+│   ├── gap-engine (détection écarts)
+│   ├── similarity-engine (cosine similarity)
+│   ├── explain-engine (décomposition scores)
+│   ├── scenario-engine (what-if)
+│   ├── timeline-engine (20 ans)
+│   └── source-engine (traçabilité)
+├── confidence.ts (Data Trust Layer)
+├── MapLibre GL JS (carte interactive)
+├── jsPDF (export documents)
+└── Service Worker (cache offline)
 
-SERVEUR (API route légère)
-└── /api/chat → Groq API (LLM gratuit)
-
-CDN GRATUIT (fichiers statiques)
-├── GeoJSON (limites administratives)
-├── JSON (données World Bank)
+CDN GRATUIT
+├── GeoJSON (limites ADM1 réelles)
+├── JSON (données)
 └── Assets (JS, CSS, fonts)
 ```
 
 ---
 
-## Coût total : 0 FCFA
+## Pages
 
-Hébergement Vercel gratuit, API Groq gratuite, données publiques, code open source.
+- `/` — Landing page (présentation du projet)
+- `/dashboard` — Outil d'analyse principal (Observer, Comparer, Expliquer, Agir, 20 ans)
+- `/about` — Informations sur le projet
+- `/admin` — Administration (authentification requise)
 
 ---
 

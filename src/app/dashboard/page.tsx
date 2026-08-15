@@ -10,6 +10,8 @@ import { computeWhatIf } from "@/lib/scenario-engine";
 import { getNationalTimeline } from "@/lib/timeline-engine";
 import { Lang } from "@/lib/wolof";
 import { CONFIDENCE_LABELS } from "@/lib/confidence";
+import GuidedQuestions from "@/components/GuidedQuestions";
+import PDCGenerator from "@/components/PDCGenerator";
 
 type Tab = "observer" | "comparer" | "expliquer" | "agir" | "timeline";
 
@@ -51,9 +53,10 @@ export default function DashboardPage() {
 
         {/* Layout */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "16px" }}>
-          {/* Left: Map */}
-          <div>
+          {/* Left: Map + Guided Questions */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <RegionMap selectedCode={selectedCode} onSelect={(code) => { setSelectedCode(code); setActiveTab("observer"); }} lang={lang} />
+            {intel && <GuidedQuestions lang={lang} onSelect={(action) => setActiveTab(action as Tab)} />}
           </div>
 
           {/* Right: Intelligence panel */}
@@ -360,17 +363,7 @@ export default function DashboardPage() {
                       )}
                     </div>
                     {/* PDF */}
-                    <div style={{ backgroundColor: "var(--color-bg-card)", border: "1px solid var(--color-border)", padding: "16px 20px" }}>
-                      <p style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)", marginBottom: "8px" }}>
-                        {lang === "wol" ? "GENERER BATAAXAL BI" : "GENERER LE DOCUMENT"}
-                      </p>
-                      <button
-                        onClick={() => { /* PDC generation via dynamic import */ }}
-                        style={{ width: "100%", padding: "14px", backgroundColor: "var(--color-terracotta)", color: "white", border: "none", fontSize: "12px", fontWeight: 600, fontFamily: "var(--font-mono)", cursor: "pointer" }}
-                      >
-                        {lang === "wol" ? "TELECHARGER DIAGNOSTIC PDF" : "TELECHARGER DIAGNOSTIC PDF"}
-                      </button>
-                    </div>
+                    <PDCGenerator diagnostic={intel.diagnostic} lang={lang} />
                   </div>
                 )}
 

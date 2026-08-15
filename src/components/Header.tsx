@@ -20,7 +20,7 @@ export default function Header({ lang, onLangChange }: HeaderProps) {
               Sàmm Sa Gox
             </h1>
             <p style={{ fontSize: "11px", color: "var(--color-text-muted)", lineHeight: 1, marginTop: "3px" }}>
-              Intelligence Territoriale — Sénégal
+              Comprendre. Comparer. Décider.
             </p>
           </div>
         </div>
