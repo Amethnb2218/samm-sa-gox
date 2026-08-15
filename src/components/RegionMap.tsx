@@ -42,7 +42,6 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
       // @ts-ignore - dynamic import for maplibre
       const maplibreModule = await import("maplibre-gl");
       const maplibregl = (maplibreModule as any).default || maplibreModule;
-      await import("maplibre-gl/dist/maplibre-gl.css");
 
       if (cancelled || !mapContainer.current) return;
 

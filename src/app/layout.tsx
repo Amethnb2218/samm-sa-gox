@@ -27,6 +27,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"
+          rel="stylesheet"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <ServiceWorkerRegister />
