@@ -203,6 +203,26 @@ export function getAvailableScenarios(): { id: string; label_fr: string; label_w
     { id: "improve_water", label_fr: "Et si l'accès à l'eau progressait de +15 points ?", label_wol: "Su ndox bi yokk 15 point ?" },
     { id: "invest_sante", label_fr: "Et si on ajoutait 5 postes de santé ?", label_wol: "Su ñu tànn 5 postu wergu yaram ?" },
     { id: "invest_education", label_fr: "Et si on construisait 10 établissements scolaires ?", label_wol: "Su ñu tabax 10 daara ?" },
-    { id: "pop_plus_10", label_fr: "Et si la population augmentait de 10% (horizon 5 ans) ?", label_wol: "Su waay-dëkk bi yokk 10% (5 at) ?" },
+    { id: "pop_plus_10", label_fr: "Et si la population augmentait de 10% (horizon 5-8 ans) ?", label_wol: "Su waay-dëkk bi yokk 10% (5-8 at) ?" },
   ];
+}
+
+export function getContextualScenarioLabel(code: string, scenarioId: string): string | null {
+  const region = REGIONS.find((r) => r.code === code);
+  const ext = getRegionExtended(code);
+  if (!region || !ext) return null;
+
+  if (scenarioId === "improve_water") {
+    const betterRegions = REGIONS
+      .filter((r) => r.code !== code)
+      .map((r) => ({ name: r.name, water: getRegionExtended(r.code)?.water_access_pct || 0 }))
+      .filter((r) => r.water > (ext.water_access_pct || 0))
+      .sort((a, b) => a.water - b.water);
+
+    if (betterRegions.length > 0) {
+      const target = betterRegions[0];
+      return `Et si ${region.name} atteignait le niveau d'accès à l'eau de ${target.name} (${Math.round(target.water)}%) ?`;
+    }
+  }
+  return null;
 }

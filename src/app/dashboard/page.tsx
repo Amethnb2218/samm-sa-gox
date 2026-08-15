@@ -489,23 +489,31 @@ export default function DashboardPage() {
                               </span>
                             </div>
                             <div style={{ display: "grid", gridTemplateColumns: `repeat(${ind.data.length}, 1fr)`, gap: "4px" }}>
-                              {ind.data.map((pt, i) => (
+                              {ind.data.map((pt, i) => {
+                                const isProjected = pt.status === "projete" || pt.status === "estime";
+                                return (
                                 <div key={i} style={{
                                   textAlign: "center",
                                   padding: "8px 4px",
                                   backgroundColor: i === ind.data.length - 1 ? "var(--color-terracotta-bg)" : "var(--color-bg-subtle)",
                                   borderRadius: "var(--radius-sm)",
                                   border: i === ind.data.length - 1 ? "1px solid var(--color-terracotta)20" : "1px solid var(--color-border)",
+                                  borderStyle: isProjected ? "dashed" : "solid",
+                                  opacity: isProjected ? 0.75 : 1,
                                 }}>
-                                  <div className="label-caps" style={{ fontSize: "9px", marginBottom: "4px" }}>{pt.year}</div>
+                                  <div className="label-caps" style={{ fontSize: "9px", marginBottom: "4px" }}>{pt.year}{isProjected ? "*" : ""}</div>
                                   <div className="data-mono" style={{ fontSize: "12px", fontWeight: 600 }}>
                                     {ind.unit === "habitants" ? (pt.value / 1000).toFixed(0) + "k" : pt.value.toLocaleString("fr-FR")}
                                   </div>
                                 </div>
-                              ))}
+                                );
+                              })}
                             </div>
                           </div>
                         ))}
+                      </div>
+                      <div style={{ padding: "12px 20px", borderTop: "1px solid var(--color-border)", fontSize: "10px", color: "var(--color-text-muted)" }}>
+                        * Données en pointillés = projections ou estimations (non observées directement)
                       </div>
                     </div>
                   </div>
