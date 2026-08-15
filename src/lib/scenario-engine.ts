@@ -202,7 +202,7 @@ export function getAvailableScenarios(): { id: string; label_fr: string; label_w
   return [
     { id: "improve_water", label_fr: "Et si l'accès à l'eau progressait de +15 points ?", label_wol: "Su ndox bi yokk 15 point ?" },
     { id: "invest_sante", label_fr: "Et si on ajoutait 5 postes de santé ?", label_wol: "Su ñu tànn 5 postu wergu yaram ?" },
-    { id: "invest_education", label_fr: "Et si on construisait 10 écoles ?", label_wol: "Su ñu tabax 10 daara ?" },
-    { id: "pop_plus_10", label_fr: "Et si la population augmentait de 10% ?", label_wol: "Su waay-dëkk bi yokk 10% ?" },
+    { id: "invest_education", label_fr: "Et si on construisait 10 établissements scolaires ?", label_wol: "Su ñu tabax 10 daara ?" },
+    { id: "pop_plus_10", label_fr: "Et si la population augmentait de 10% (horizon 5 ans) ?", label_wol: "Su waay-dëkk bi yokk 10% (5 at) ?" },
   ];
 }

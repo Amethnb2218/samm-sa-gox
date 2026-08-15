@@ -268,7 +268,7 @@ export default function DashboardPage() {
                         <p style={{ fontSize: "13px", color: "var(--color-text-secondary)", marginTop: "6px" }}>
                           {lang === "wol"
                             ? `Gox yi gena melni ${intel.diagnostic.name} ci 6 dimensions`
-                            : `Regions presentant des caracteristiques comparables a ${intel.diagnostic.name} (similarite cosinus sur 6 dimensions)`}
+                            : `Régions présentant des caractéristiques comparables à ${intel.diagnostic.name} (similarité cosinus sur 6 dimensions : densité, urbanisation, jeunesse, alphabétisation, santé, eau)`}
                         </p>
                       </div>
                       <div className="card-body" style={{ padding: 0 }}>
@@ -357,9 +357,12 @@ export default function DashboardPage() {
                     <div className="card" style={{ marginBottom: "16px" }}>
                       <div className="card-header">
                         <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
-                          {lang === "wol" ? "Ndax lan? — Teral score bi" : "Comment ce score est calcule ?"}
+                          {lang === "wol" ? "Ndax lan? — Teral score bi" : "IDT — Indice expérimental Sàmm Sa Gox"}
                         </span>
-                        <div style={{ display: "flex", alignItems: "baseline", gap: "12px", marginTop: "10px" }}>
+                        <p style={{ fontSize: "11px", color: "var(--color-text-muted)", marginTop: "6px", fontStyle: "italic" }}>
+                          {"Indice calculé par Sàmm Sa Gox à partir de données publiques. Ne constitue pas un indicateur officiel de l'ANSD."}
+                        </p>
+                        <div style={{ display: "flex", alignItems: "baseline", gap: "12px", marginTop: "12px" }}>
                           <span className="data-mono" style={{ fontSize: "36px", fontWeight: 700, color: "var(--color-terracotta)", lineHeight: 1 }}>{intel.idt.total}</span>
                           <span style={{ fontSize: "15px", color: "var(--color-text-muted)" }}>/ {intel.idt.max_possible} — {lang === "wol" ? intel.idt.category_wol : intel.idt.category_fr}</span>
                         </div>

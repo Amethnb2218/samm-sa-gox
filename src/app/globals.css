@@ -201,11 +201,37 @@ h1, h2, h3, h4 {
   height: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .responsive-grid {
     grid-template-columns: 1fr !important;
   }
+}
+
+@media (max-width: 768px) {
   .hide-mobile {
     display: none !important;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .idt-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .card-header {
+    padding: 12px 16px;
+  }
+  .card-body {
+    padding: 12px 16px;
   }
 }

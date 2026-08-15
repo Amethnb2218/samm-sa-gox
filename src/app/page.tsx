@@ -66,7 +66,7 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section style={{ paddingTop: "140px", paddingBottom: "80px" }}>
-        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div className="hero-grid" style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
               <span style={{ width: "24px", height: "1px", backgroundColor: "var(--color-terracotta)" }} />
@@ -97,7 +97,7 @@ export default function LandingPage() {
 
       {/* Metrics bar */}
       <section style={{ borderTop: "1px solid var(--color-border)", borderBottom: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-card)" }}>
-        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "28px 24px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "32px" }}>
+        <div className="metrics-grid" style={{ maxWidth: "1120px", margin: "0 auto", padding: "28px 24px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "32px" }}>
           {[
             { value: count.toLocaleString("fr-FR"), label: "Habitants couverts", sub: "RGPH-5 2023" },
             { value: "14", label: "Régions analysées", sub: "Couverture nationale" },
@@ -128,7 +128,7 @@ export default function LandingPage() {
           Un parcours structuré en 4 étapes pour comprendre chaque territoire, identifier ses enjeux et simuler des scénarios de développement.
         </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2px" }}>
+        <div className="steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2px" }}>
           {[
             { step: "01", title: "Observer", desc: "Population, densité, IDT, écarts aux normes, forces et faiblesses du territoire." },
             { step: "02", title: "Comparer", desc: "Territoires similaires, dimensions partagées, analyse des écarts vs objectifs." },
@@ -147,7 +147,7 @@ export default function LandingPage() {
       {/* IDT Ranking */}
       <section style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-card)" }}>
         <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "64px 24px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "64px", alignItems: "start" }}>
+          <div className="idt-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "64px", alignItems: "start" }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
                 <span style={{ width: "24px", height: "1px", backgroundColor: "var(--color-terracotta)" }} />
@@ -210,7 +210,7 @@ export default function LandingPage() {
         <p style={{ fontSize: "14px", color: "var(--color-text-muted)", marginBottom: "32px", maxWidth: "520px" }}>
           {"Sàmm Sa Gox distingue clairement les données officielles, calculées, estimées ou indisponibles. Aucune donnée n'est inventée."}
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
+        <div className="trust-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
           {[
             { label: "OFFICIEL", desc: "Source ANSD publiée", color: "var(--color-green)", bg: "var(--color-green-bg)" },
             { label: "CALCULÉ", desc: "Dérivé de sources officielles", color: "var(--color-navy)", bg: "#EFF6FF" },

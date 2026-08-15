@@ -139,6 +139,45 @@ export default function AboutPage() {
             </ul>
           </section>
 
+          {/* Similarité */}
+          <section style={{ marginBottom: "36px" }}>
+            <h2 style={{ fontSize: "18px", fontFamily: "var(--font-display)", fontWeight: 600, marginBottom: "12px" }}>
+              Moteur de similarité
+            </h2>
+            <p style={{ fontSize: "14px", color: "var(--color-text-secondary)", lineHeight: 1.8, marginBottom: "12px" }}>
+              {"Le moteur identifie les territoires statistiquement proches à l'aide d'une similarité cosinus sur 6 dimensions normalisées (min-max) :"}
+            </p>
+            <ol style={{ fontSize: "13px", color: "var(--color-text-secondary)", lineHeight: 2, paddingLeft: "20px" }}>
+              <li>Densité de population (hab/km²)</li>
+              <li>Taux d'urbanisation (%)</li>
+              <li>Ratio jeunes (&lt;15 ans, %)</li>
+              <li>Taux d'alphabétisation (%)</li>
+              <li>Couverture sanitaire (postes/10k hab)</li>
+              <li>Accès eau potable (%)</li>
+            </ol>
+            <p style={{ fontSize: "12px", color: "var(--color-text-muted)", marginTop: "12px", fontStyle: "italic" }}>
+              {"Toutes les dimensions ont un poids égal. La normalisation min-max ramène chaque variable entre 0 et 1 avant le calcul cosinus. Un score de 100% signifie des profils strictement proportionnels."}
+            </p>
+          </section>
+
+          {/* Scénarios */}
+          <section style={{ marginBottom: "36px" }}>
+            <h2 style={{ fontSize: "18px", fontFamily: "var(--font-display)", fontWeight: 600, marginBottom: "12px" }}>
+              {"Scénarios « Et si... ? »"}
+            </h2>
+            <p style={{ fontSize: "14px", color: "var(--color-text-secondary)", lineHeight: 1.8, marginBottom: "12px" }}>
+              {"Les scénarios simulent l'impact mécanique d'un changement sur un indicateur, toutes choses égales par ailleurs. Ce ne sont pas des prévisions causales ni économétriques."}
+            </p>
+            <p style={{ fontSize: "13px", color: "var(--color-text-secondary)", lineHeight: 1.8 }}>
+              {"Exemple : « Et si l'accès à l'eau progressait de +15 points ? » → recalcul de la dimension infrastructure de l'IDT = (eau + électricité) / 2 vs objectif 95%."}
+            </p>
+            <div style={{ marginTop: "12px", padding: "12px 16px", backgroundColor: "var(--color-terracotta-bg)", borderRadius: "var(--radius-sm)", border: "1px solid rgba(168,66,42,0.15)" }}>
+              <p style={{ fontSize: "11px", color: "var(--color-terracotta)", fontWeight: 600 }}>
+                {"Ces résultats sont des simulations statistiques de Sàmm Sa Gox. Ils ne constituent pas des prévisions officielles."}
+              </p>
+            </div>
+          </section>
+
           {/* Architecture */}
           <section style={{ marginBottom: "36px" }}>
             <h2 style={{ fontSize: "18px", fontFamily: "var(--font-display)", fontWeight: 600, marginBottom: "12px" }}>
