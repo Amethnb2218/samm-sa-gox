@@ -4,6 +4,7 @@ import Link from "next/link";
 import { REGIONS } from "@/lib/data";
 import { computeAllIDT } from "@/lib/idt";
 import { useState, useEffect } from "react";
+import HeroMap from "@/components/HeroMap";
 
 export default function LandingPage() {
   const [count, setCount] = useState(0);
@@ -65,18 +66,18 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section style={{ paddingTop: "140px", paddingBottom: "80px" }}>
-        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ maxWidth: "640px" }}>
+        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+          <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
               <span style={{ width: "24px", height: "1px", backgroundColor: "var(--color-terracotta)" }} />
               <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
                 Challenge 20 ans ANSD 2026
               </span>
             </div>
-            <h1 style={{ fontSize: "clamp(32px, 4.5vw, 48px)", fontFamily: "var(--font-display)", fontWeight: 700, lineHeight: 1.12, letterSpacing: "-0.03em", color: "var(--color-text)" }}>
+            <h1 style={{ fontSize: "clamp(32px, 4.5vw, 44px)", fontFamily: "var(--font-display)", fontWeight: 700, lineHeight: 1.12, letterSpacing: "-0.03em", color: "var(--color-text)" }}>
               Transformer les statistiques publiques en intelligence territoriale
             </h1>
-            <p style={{ fontSize: "17px", lineHeight: 1.7, color: "var(--color-text-secondary)", marginTop: "20px", maxWidth: "520px" }}>
+            <p style={{ fontSize: "16px", lineHeight: 1.7, color: "var(--color-text-secondary)", marginTop: "20px", maxWidth: "480px" }}>
               {"Observer, comparer, expliquer et simuler le développement des 14 régions du Sénégal. Chaque chiffre est tracé jusqu'à sa source."}
             </p>
             <div style={{ marginTop: "32px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
@@ -87,6 +88,9 @@ export default function LandingPage() {
                 Comprendre la méthode
               </Link>
             </div>
+          </div>
+          <div className="hide-mobile" style={{ display: "flex", justifyContent: "center" }}>
+            <HeroMap />
           </div>
         </div>
       </section>

@@ -149,6 +149,50 @@ export function computeWhatIf(code: string, scenarioId: string): WhatIfResult | 
       };
     }
 
+    case "improve_water": {
+      const currentWater = ext.water_access_pct || ext.water_rate;
+      const targetWater = Math.min(currentWater + 15, 100);
+      const currentElec = ext.electricity_pct || ext.electricity_rate;
+      const currentInfra = (currentWater + currentElec) / 2;
+      const newInfra = (targetWater + currentElec) / 2;
+      const currentInfraScore = Math.min(25, Math.round(currentInfra / 95 * 25));
+      const newInfraScore = Math.min(25, Math.round(newInfra / 95 * 25));
+      const idtGain = newInfraScore - currentInfraScore;
+
+      return {
+        scenario: {
+          id: "improve_water",
+          label_fr: `Et si l'accès à l'eau progressait de +15 points ?`,
+          label_wol: "Su ndox bi yokk 15 point ?",
+          variable: "water_rate",
+          change_pct: 15,
+          impacts: [
+            {
+              indicator_fr: "Accès eau potable",
+              indicator_wol: "Ndox mu sell",
+              before: Math.round(currentWater * 10) / 10,
+              after: Math.round(targetWater * 10) / 10,
+              change_pct: Math.round(((targetWater - currentWater) / currentWater) * 100),
+              unit: "%",
+              methodology: "Augmentation simulée de 15 points du taux d'accès (source améliorée)",
+            },
+            {
+              indicator_fr: "Score infrastructure IDT",
+              indicator_wol: "Score njëkk IDT",
+              before: currentInfraScore,
+              after: newInfraScore,
+              change_pct: idtGain > 0 ? Math.round((idtGain / currentInfraScore) * 100) : 0,
+              unit: "/25 pts",
+              methodology: "Recalcul dimension infrastructure = (eau + électricité) / 2 vs objectif 95%",
+            },
+          ],
+        },
+        summary_fr: `Si l'accès à l'eau potable à ${region.name} progressait de ${Math.round(currentWater)}% à ${Math.round(targetWater)}%, le score infrastructure de l'IDT passerait de ${currentInfraScore} à ${newInfraScore}/25 points (+${idtGain} pts).`,
+        summary_wol: `Su ndox mu sell ci ${region.name} yokk dale ${Math.round(currentWater)}% ba ${Math.round(targetWater)}%, score IDT bi dina yokk ${idtGain} point.`,
+        feasibility_fr: "Horizon : 5-10 ans. Programmes PEPAM, hydraulique rurale. Investissement estimé variable selon le type d'infrastructure.",
+      };
+    }
+
     default:
       return null;
   }
@@ -156,8 +200,9 @@ export function computeWhatIf(code: string, scenarioId: string): WhatIfResult | 
 
 export function getAvailableScenarios(): { id: string; label_fr: string; label_wol: string }[] {
   return [
-    { id: "pop_plus_10", label_fr: "Et si la population augmente de 10% ?", label_wol: "Su waay-dëkk bi yokk 10% ?" },
-    { id: "invest_sante", label_fr: "Et si on ajoute 5 postes de santé ?", label_wol: "Su ñu tànn 5 postu wergu yaram ?" },
-    { id: "invest_education", label_fr: "Et si on construit 10 écoles ?", label_wol: "Su ñu tabax 10 daara ?" },
+    { id: "improve_water", label_fr: "Et si l'accès à l'eau progressait de +15 points ?", label_wol: "Su ndox bi yokk 15 point ?" },
+    { id: "invest_sante", label_fr: "Et si on ajoutait 5 postes de santé ?", label_wol: "Su ñu tànn 5 postu wergu yaram ?" },
+    { id: "invest_education", label_fr: "Et si on construisait 10 écoles ?", label_wol: "Su ñu tabax 10 daara ?" },
+    { id: "pop_plus_10", label_fr: "Et si la population augmentait de 10% ?", label_wol: "Su waay-dëkk bi yokk 10% ?" },
   ];
 }

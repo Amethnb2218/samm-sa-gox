@@ -4,11 +4,11 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import RegionMap from "@/components/RegionMap";
+import DataProof from "@/components/DataProof";
 import { buildTerritoryIntelligence } from "@/lib/territory-engine";
 import { computeWhatIf } from "@/lib/scenario-engine";
 import { getNationalTimeline } from "@/lib/timeline-engine";
 import { Lang } from "@/lib/wolof";
-import { CONFIDENCE_LABELS } from "@/lib/confidence";
 import GuidedQuestions from "@/components/GuidedQuestions";
 import PDCGenerator from "@/components/PDCGenerator";
 
@@ -62,7 +62,27 @@ export default function DashboardPage() {
           {/* Main content */}
           <div>
             {!intel ? (
-              <NationalView lang={lang} nationalTimeline={nationalTimeline} />
+              <div>
+                {/* Demo suggestion */}
+                <div style={{ marginBottom: "16px", padding: "14px 20px", backgroundColor: "var(--color-terracotta-bg)", border: "1px solid rgba(168,66,42,0.15)", borderRadius: "var(--radius-md)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <div>
+                    <p style={{ fontSize: "13px", fontWeight: 500, color: "var(--color-text)" }}>
+                      {lang === "wol" ? "Jëm ci Kaffrine ngir xool demo bi" : "Essayez avec Kaffrine pour une démonstration complète"}
+                    </p>
+                    <p style={{ fontSize: "11px", color: "var(--color-text-muted)", marginTop: "2px" }}>
+                      {lang === "wol" ? "Gox gi am na jafe-jafe yu bari te am na doole" : "Région contrastée : électricité 57%, eau 97%, pauvreté 62%"}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => { setSelectedCode("KF"); setActiveTab("observer"); }}
+                    className="btn-primary"
+                    style={{ padding: "8px 16px", fontSize: "11px", whiteSpace: "nowrap" }}
+                  >
+                    Kaffrine →
+                  </button>
+                </div>
+                <NationalView lang={lang} nationalTimeline={nationalTimeline} />
+              </div>
             ) : (
               <div className="fade-in">
                 {/* Tab navigation */}
@@ -118,9 +138,53 @@ export default function DashboardPage() {
                       </div>
                       {/* Key metrics */}
                       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid var(--color-border)" }}>
-                        <MetricCell label="Population" value={intel.diagnostic.population.toLocaleString("fr-FR")} badge="OFFICIEL" badgeType="official" />
-                        <MetricCell label="Densite" value={`${Math.round(intel.diagnostic.density)} hab/km2`} badge="CALCULE" badgeType="calculated" border />
-                        <MetricCell label="Superficie" value={`${intel.diagnostic.area_km2.toLocaleString("fr-FR")} km2`} badge="OFFICIEL" badgeType="official" border />
+                        <div style={{ padding: "14px 20px" }}>
+                          <span className="label-caps" style={{ fontSize: "9px" }}>Population</span>
+                          <p className="data-mono" style={{ fontSize: "18px", fontWeight: 700, marginTop: "4px", lineHeight: 1 }}>
+                            <DataProof proof={{
+                              value: intel.diagnostic.population.toLocaleString("fr-FR"),
+                              label: "Population totale",
+                              source: "ANSD",
+                              publication: "RGPH-5 2023, Tableau I-15",
+                              year: 2023,
+                              territory: `Sénégal / ${intel.diagnostic.name}`,
+                              level: "Régional",
+                              unit: "habitants",
+                              method: "Dénombrement exhaustif RGPH-5",
+                              status: "officiel",
+                            }}>
+                              {intel.diagnostic.population.toLocaleString("fr-FR")}
+                            </DataProof>
+                          </p>
+                          <span className="badge badge-official" style={{ marginTop: "6px" }}>OFFICIEL</span>
+                        </div>
+                        <div style={{ padding: "14px 20px", borderLeft: "1px solid var(--color-border)" }}>
+                          <span className="label-caps" style={{ fontSize: "9px" }}>Densité</span>
+                          <p className="data-mono" style={{ fontSize: "18px", fontWeight: 700, marginTop: "4px", lineHeight: 1 }}>
+                            <DataProof proof={{
+                              value: `${Math.round(intel.diagnostic.density)} hab/km²`,
+                              label: "Densité de population",
+                              source: "Sàmm Sa Gox",
+                              publication: "Calcul : population RGPH-5 / superficie geoBoundaries",
+                              year: 2023,
+                              territory: `Sénégal / ${intel.diagnostic.name}`,
+                              level: "Régional",
+                              unit: "habitants/km²",
+                              method: "Population (RGPH-5) ÷ Superficie (geoBoundaries ADM1)",
+                              status: "calcule",
+                            }}>
+                              {Math.round(intel.diagnostic.density)} hab/km²
+                            </DataProof>
+                          </p>
+                          <span className="badge badge-calculated" style={{ marginTop: "6px" }}>CALCULÉ</span>
+                        </div>
+                        <div style={{ padding: "14px 20px", borderLeft: "1px solid var(--color-border)" }}>
+                          <span className="label-caps" style={{ fontSize: "9px" }}>Superficie</span>
+                          <p className="data-mono" style={{ fontSize: "18px", fontWeight: 700, marginTop: "4px", lineHeight: 1 }}>
+                            {intel.diagnostic.area_km2.toLocaleString("fr-FR")} km²
+                          </p>
+                          <span className="badge badge-official" style={{ marginTop: "6px" }}>OFFICIEL</span>
+                        </div>
                       </div>
                     </div>
 
@@ -514,12 +578,3 @@ function NationalView({ lang, nationalTimeline }: { lang: Lang; nationalTimeline
   );
 }
 
-function MetricCell({ label, value, badge, badgeType, border }: { label: string; value: string; badge: string; badgeType: string; border?: boolean }) {
-  return (
-    <div style={{ padding: "14px 20px", borderLeft: border ? "1px solid var(--color-border)" : "none" }}>
-      <span className="label-caps" style={{ fontSize: "9px" }}>{label}</span>
-      <p className="data-mono" style={{ fontSize: "18px", fontWeight: 700, marginTop: "4px", lineHeight: 1 }}>{value}</p>
-      <span className={`badge badge-${badgeType}`} style={{ marginTop: "6px" }}>{badge}</span>
-    </div>
-  );
-}

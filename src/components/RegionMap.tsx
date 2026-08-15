@@ -63,7 +63,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
               id: "osm-tiles",
               type: "raster",
               source: "osm",
-              paint: { "raster-opacity": 0.25, "raster-saturation": -1 },
+              paint: { "raster-opacity": 0.15, "raster-saturation": -1 },
             },
           ],
         },
@@ -91,7 +91,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           paint: {
             "fill-color": [
               "match",
-              ["get", "name"],
+              ["get", "shapeName"],
               ...REGIONS.flatMap((r) => {
                 const density = r.population / r.area_km2;
                 const maxDensity = 7841;
@@ -104,7 +104,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
               }),
               "#E4E2DC",
             ],
-            "fill-opacity": 0.85,
+            "fill-opacity": 0.92,
           },
         });
 
@@ -113,8 +113,8 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           type: "line",
           source: "regions",
           paint: {
-            "line-color": "#F8F7F4",
-            "line-width": 1.5,
+            "line-color": "rgba(248,247,244,0.95)",
+            "line-width": 2,
           },
         });
 
@@ -134,7 +134,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
           type: "symbol",
           source: "regions",
           layout: {
-            "text-field": ["get", "name"],
+            "text-field": ["get", "shapeName"],
             "text-size": 10,
             "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
             "text-anchor": "center",
@@ -154,7 +154,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
 
       map.on("mousemove", "regions-fill", (e: any) => {
         if (e.features?.length) {
-          const name = e.features[0].properties.name;
+          const name = e.features[0].properties.shapeName;
           const code = NAME_TO_CODE[name];
           setHovered(code || null);
           map.setFilter("regions-highlight", ["==", "name", name]);
@@ -170,7 +170,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
 
       map.on("click", "regions-fill", (e: any) => {
         if (e.features?.length) {
-          const name = e.features[0].properties.name;
+          const name = e.features[0].properties.shapeName;
           const code = NAME_TO_CODE[name];
           if (code) onSelect(code);
         }
@@ -188,7 +188,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
       : "";
     mapRef.current.setPaintProperty("regions-fill", "fill-opacity", [
       "case",
-      ["==", ["get", "name"], selectedName],
+      ["==", ["get", "shapeName"], selectedName],
       1,
       0.7,
     ]);
