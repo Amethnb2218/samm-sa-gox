@@ -56,8 +56,8 @@ export default function HeroMap({ onSelect }: HeroMapProps) {
   }, []);
 
   const bbox = [-17.6, 12.2, -11.3, 16.8];
-  const W = 420;
-  const H = 340;
+  const W = 500;
+  const H = 400;
 
   const hoveredRegion = hovered ? REGIONS.find((r) => r.code === hovered) : null;
 
@@ -68,7 +68,7 @@ export default function HeroMap({ onSelect }: HeroMapProps) {
         viewBox={`0 0 ${W} ${H}`}
         width="100%"
         height="auto"
-        style={{ maxWidth: "420px" }}
+        style={{ maxWidth: "500px" }}
         onMouseMove={(e) => {
           if (svgRef.current) {
             const rect = svgRef.current.getBoundingClientRect();

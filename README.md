@@ -1,93 +1,100 @@
-# Sàmm Sa Gox — Comprendre. Comparer. Décider.
+# Sàmm Sa Gox — Intelligence Territoriale
 
-Le premier moteur d'intelligence territoriale du Sénégal transformant 20 ans de données ANSD en diagnostics, comparaisons, explications et scénarios d'action — traçables jusqu'à chaque chiffre officiel.
+Transformer les statistiques publiques du Sénégal en intelligence territoriale vérifiable.
 
 **Challenge 20 ans ANSD — Hackathon 2026**
+
+**Live** : https://samm-sa-gox.onrender.com
 
 ---
 
 ## Concept
 
-Une question → des données ANSD → une réponse territoriale justifiée → une décision.
-
-Le pipeline :
+Sàmm Sa Gox construit une chaîne complète permettant de transformer une statistique publique en raisonnement territorial vérifiable, puis en scénario de décision.
 
 ```
-DONNÉES ANSD
+DONNÉES ANSD (RGPH-5 2023)
      ↓
-CONFIANCE (officiel / calculé / estimé)
+DATA TRUST (officiel / calculé / estimé)
      ↓
-COMPARAISON (territoires similaires)
+OBSERVER (diagnostic territorial)
      ↓
-ÉCARTS (détection de problèmes)
+COMPARER (similarité cosinus 6 dimensions)
      ↓
-EXPLICATION (pourquoi ce score ?)
+EXPLIQUER (décomposition IDT transparente)
      ↓
-SCÉNARIOS (et si... ?)
+AGIR (scénarios "Et si...?" + impact IDT)
      ↓
-ACTION (PDF, recommandations)
+20 ANS (évolution nationale vérifiée)
 ```
 
 ---
 
 ## Fonctionnalités
 
-### 1. Observer — Diagnostic territorial
-Fiche complète par région et département. Population, densité, rang national, détection automatique des problèmes prioritaires. Forces et faiblesses identifiées. Narratif en wolof et français.
+### Observer — Diagnostic territorial
+Population, densité, IDT, alertes prioritaires (écarts vs normes OMS/UNESCO/ODD), forces et faiblesses. Bilingue français/wolof.
 
-### 2. Comparer — Territoires similaires
-Algorithme de cosine similarity sur 6 dimensions (densité, urbanisation, jeunesse, alphabétisation, couverture sanitaire, accès eau). Identifie les territoires aux caractéristiques comparables et les défis communs.
+### Comparer — Territoires similaires
+Similarité cosinus sur 6 dimensions normalisées : densité, urbanisation, jeunesse, alphabétisation, couverture sanitaire, accès eau. Affiche les dimensions qui expliquent la similarité.
 
-### 3. Expliquer — Décomposition transparente
-Chaque score est décomposé : pourquoi ce résultat ? Combien de points pour chaque facteur ? Quelle source ? Quelle méthodologie ? Pas de boîte noire.
+### Expliquer — Décomposition IDT
+Score composite 4×25 points. Chaque dimension décomposée avec source, valeur, objectif et contribution. Disclaimer : "Indice expérimental Sàmm Sa Gox — non officiel ANSD."
 
-### 4. Agir — Scénarios et PDF
-Simulateur "Et si...?" (population +10%, +5 postes de santé, +10 écoles). Générateur de document PDC (5 pages, format officiel). Export PDF prêt pour dépôt en préfecture.
+### Agir — Scénarios "Et si...?"
+4 simulations (eau +15pts, +5 postes santé, +10 écoles, population +10%). Impact mécanique sur l'IDT. Mention : "Simulation statistique — pas une prévision officielle."
 
-### 5. 20 ans — Évolution temporelle
-Comment le territoire a changé depuis la création de l'ANSD. 6 indicateurs nationaux avec évolution et sources datées.
+### 20 ans — Évolution nationale
+6 indicateurs nationaux (2006-2026) avec distinction visuelle entre données observées, estimées et projetées.
 
 ### Data Trust Layer
-Chaque chiffre affiche son niveau de confiance :
-- **OFFICIEL** — Donnée directe ANSD (RGPH-5, carte sanitaire)
-- **CALCULÉ** — Dérivé de données officielles avec formule documentée
-- **ESTIMÉ** — Approximation avec limites identifiées
+Chaque chiffre est cliquable → fiche preuve : source, publication, tableau, année, méthode, statut, limites.
 
-### Moteur de questions guidées
-L'utilisateur ne navigue pas dans des menus. Il pose un besoin :
-- "Quels sont les principaux problèmes ?"
-- "Où investir ?"
-- "Quels territoires ressemblent au mien ?"
-- "Quels progrès en 20 ans ?"
+### Carte interactive
+MapLibre GL JS + GeoJSON geoBoundaries ADM1. Choroplèthe densité, 14 régions, hover tooltip, clic pour analyser.
 
-Le système répond avec les données ANSD.
+---
+
+## Données intégrées
+
+| Indicateur | Source | Statut |
+|---|---|---|
+| Population 14 régions | RGPH-5 2023, Tableau I-15 | OFFICIEL |
+| Alphabétisation 10+ | RGPH-5 Chap. 2, Tableau II-5 | OFFICIEL |
+| Électricité+solaire | RGPH-5 Chap. 8, Tableau VIII-10 | CALCULÉ |
+| Accès eau (sources améliorées) | RGPH-5 Chap. 8, Tableau VIII-12 | CALCULÉ |
+| Ménages agricoles | AGRIDATA/RGPH-5 | OFFICIEL |
+| Santé (postes, médecins) | Estimations | ESTIMÉ |
+| Pauvreté | EHCVM | ESTIMÉ |
+
+---
+
+## IDT — Indice de Développement Territorial
+
+Score composite sur 100 points calculé par Sàmm Sa Gox :
+
+| Dimension | Poids | Indicateur | Source |
+|---|---|---|---|
+| Santé | 25 pts | Postes/10k hab vs norme OMS 1.5 | Estimations |
+| Éducation | 25 pts | Alphabétisation 10+ vs objectif 75% | RGPH-5 Chap. 2 |
+| Infrastructure | 25 pts | Moy. eau+électricité vs 95% | RGPH-5 Chap. 8 |
+| Économie | 25 pts | Densité + urbanisation (proxy) | RGPH-5 |
+
+Pondérations égales : choix assumé en l'absence de pondération officielle.
 
 ---
 
 ## Stack technique
 
 | Composant | Technologie | Coût |
-|-----------|-------------|------|
+|---|---|---|
 | Framework | Next.js 16 (App Router) | 0 |
 | Style | Tailwind CSS 4 | 0 |
-| Cartographie | MapLibre GL JS + geoBoundaries GeoJSON | 0 |
-| Moteurs | gap-engine, similarity-engine, explain-engine, scenario-engine, timeline-engine | 0 |
+| Cartographie | MapLibre GL JS + geoBoundaries | 0 |
+| Moteurs | 7 engines (territory, gap, similarity, explain, scenario, timeline, source) | 0 |
 | Export PDF | jsPDF | 0 |
-| Agent IA | Groq API (Llama 3.1, gratuit) | 0 |
-| Offline | Service Workers (PWA) | 0 |
-| Hébergement | Vercel Free Tier | 0 |
+| Hébergement | Render (Free Tier) | 0 |
 | **Total** | | **0 FCFA** |
-
----
-
-## Sources de données
-
-- **ANSD — RGPH-5 2023** : Population, éducation, habitat, eau, électricité
-- **ANSD — Carte sanitaire 2023** : Structures de santé par région
-- **ANSD — Carte scolaire 2023** : Établissements par localisation
-- **ANSD — Comptes régionaux** : PIB régional
-- **OMS** : Normes de couverture sanitaire
-- **UNESCO / ODD** : Cibles éducation, eau, énergie
 
 ---
 
@@ -97,63 +104,24 @@ Le système répond avec les données ANSD.
 git clone https://github.com/Amethnb2218/samm-sa-gox.git
 cd samm-sa-gox
 npm install
-```
-
-## Configuration
-
-Créer `.env.local` :
-```
-GROQ_API_KEY=votre_cle_groq
-```
-Clé gratuite : https://console.groq.com/keys (optionnel — le moteur local fonctionne sans)
-
-## Lancement
-
-```bash
 npm run dev
 ```
+
 Ouvrir http://localhost:3000
 
 ## Déploiement
 
-```bash
-npx vercel --prod
-```
+Hébergé sur Render.com — auto-deploy depuis `main`.
 
 ---
 
-## Architecture
+## Limites connues
 
-```
-NAVIGATEUR (tout le calcul ici)
-├── Next.js (interface + routing)
-├── Moteurs d'analyse (7 engines)
-│   ├── territory-engine (orchestrateur)
-│   ├── gap-engine (détection écarts)
-│   ├── similarity-engine (cosine similarity)
-│   ├── explain-engine (décomposition scores)
-│   ├── scenario-engine (what-if)
-│   ├── timeline-engine (20 ans)
-│   └── source-engine (traçabilité)
-├── confidence.ts (Data Trust Layer)
-├── MapLibre GL JS (carte interactive)
-├── jsPDF (export documents)
-└── Service Worker (cache offline)
-
-CDN GRATUIT
-├── GeoJSON (limites ADM1 réelles)
-├── JSON (données)
-└── Assets (JS, CSS, fonts)
-```
-
----
-
-## Pages
-
-- `/` — Landing page (présentation du projet)
-- `/dashboard` — Outil d'analyse principal (Observer, Comparer, Expliquer, Agir, 20 ans)
-- `/about` — Informations sur le projet
-- `/admin` — Administration (authentification requise)
+- Santé/éducation (postes, écoles) : estimations, pas RGPH-5
+- Pauvreté : source EHCVM, marqué ESTIMÉ
+- Départements : estimations proportionnelles
+- Économie IDT : proxy (densité+urbanisation), pas PIB régional
+- Séries temporelles régionales : limitées à la population
 
 ---
 
