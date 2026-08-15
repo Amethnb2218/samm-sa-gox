@@ -133,32 +133,111 @@ export const NATIONAL_REGISTRY: RegisteredIndicator[] = [
 // la valeur est marquée "estime" et non "officiel".
 // =============================================================================
 
+// Source vérifiée : ANSD — RGPH-5, 18 août 2023 (résultats définitifs)
+// Référence : https://www.ansd.sn/recensement/rgph-5-2023
+// Total vérifié : 18 126 390
 export const REGIONAL_POPULATION_RGPH5: {
   code: string;
   name: string;
   population: number;
+  population_2013: number;
+  area_km2: number;
   status: ConfidenceLevel;
   note: string;
 }[] = [
-  { code: "DK", name: "Dakar", population: 4042225, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "DL", name: "Diourbel", population: 1978463, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "FK", name: "Fatick", population: 918809, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "KF", name: "Kaffrine", population: 793429, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "KL", name: "Kaolack", population: 1132776, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "KD", name: "Kédougou", population: 208627, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "KG", name: "Kolda", population: 803789, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "LG", name: "Louga", population: 1044193, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "MT", name: "Matam", population: 706962, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "SL", name: "Saint-Louis", population: 1091390, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "SE", name: "Sédhiou", population: 576348, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "TC", name: "Tambacounda", population: 910218, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "TH", name: "Thiès", population: 2230639, status: "officiel", note: "RGPH-5 résultats définitifs" },
-  { code: "ZG", name: "Ziguinchor", population: 686522, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "DK", name: "Dakar", population: 4004427, population_2013: 3137196, area_km2: 535, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "DL", name: "Diourbel", population: 2080335, population_2013: 1497455, area_km2: 4860, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "FK", name: "Fatick", population: 906918, population_2013: 714392, area_km2: 7010, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "KF", name: "Kaffrine", population: 820405, population_2013: 566992, area_km2: 11057, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "KL", name: "Kaolack", population: 1336719, population_2013: 960875, area_km2: 5310, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "KD", name: "Kédougou", population: 245146, population_2013: 151357, area_km2: 16904, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "KG", name: "Kolda", population: 914798, population_2013: 662455, area_km2: 13752, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "LG", name: "Louga", population: 1125908, population_2013: 874193, area_km2: 25619, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "MT", name: "Matam", population: 831629, population_2013: 562539, area_km2: 28830, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "SL", name: "Saint-Louis", population: 1202442, population_2013: 908942, area_km2: 19010, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "SE", name: "Sédhiou", population: 589266, population_2013: 452994, area_km2: 7353, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "TC", name: "Tambacounda", population: 987151, population_2013: 681310, area_km2: 42613, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "TH", name: "Thiès", population: 2463678, population_2013: 1788864, area_km2: 6586, status: "officiel", note: "RGPH-5 résultats définitifs" },
+  { code: "ZG", name: "Ziguinchor", population: 617568, population_2013: 549151, area_km2: 7329, status: "officiel", note: "RGPH-5 résultats définitifs" },
 ];
 
 // =============================================================================
 // HELPER FUNCTIONS
 // =============================================================================
+
+// =============================================================================
+// INDICATEURS AGRICULTURE — AGRIDATA / RGPH-5 (niveau national)
+// Source : https://agridata.ansd.sn/dataset
+// Organisme : DSDS/ANSD
+// Note : Ces données existent au niveau communal dans le RGPH-5 mais
+// les fichiers AGRIDATA consultés ne fournissent que le total national.
+// La désagrégation régionale est dans les rapports régionaux PDF (avril 2026).
+// =============================================================================
+export const AGRIDATA_NATIONAL: RegisteredIndicator[] = [
+  {
+    id: "menages_agricoles_2023",
+    label_fr: "Ménages agricoles (au sens large)",
+    label_wol: "Waa kër yu bëy",
+    value: 909638,
+    unit: "ménages",
+    year: 2023,
+    geography_level: "national",
+    source: "ANSD — DSDS",
+    publication: "RGPH-5, module Agriculture intégré",
+    source_url: "https://agridata.ansd.sn/dataset/nombredemenagesagricolesrgph",
+    status: "officiel",
+    methodology: "Somme des ménages déclarant une activité agricole (au sens large : culture, élevage, pêche, sylviculture)",
+    limitations: "Niveau communal existe mais non disponible dans le fichier XLS consulté. Désagrégation régionale : voir rapports régionaux RGPH-5.",
+    date_accessed: "2026-08-15",
+  },
+  {
+    id: "abattoirs_2023",
+    label_fr: "Nombre d'abattoirs",
+    label_wol: "Xar-xasu mala",
+    value: 107,
+    unit: "infrastructures",
+    year: 2023,
+    geography_level: "national",
+    source: "ANSD — DSDS",
+    publication: "RGPH-5, module Agriculture",
+    source_url: "https://agridata.ansd.sn/dataset/nombredabattoirsrgph",
+    status: "officiel",
+    methodology: "Somme des infrastructures d'abattage inventoriées lors du RGPH-5",
+    limitations: "Niveau communal existe dans le RGPH-5 mais le fichier XLS ne fournit que le total national.",
+    date_accessed: "2026-08-15",
+  },
+  {
+    id: "foirails_2023",
+    label_fr: "Nombre de foirails (marchés à bétail)",
+    label_wol: "Marse gu mala",
+    value: 46,
+    unit: "infrastructures",
+    year: 2023,
+    geography_level: "national",
+    source: "ANSD — DSDS",
+    publication: "RGPH-5, module Agriculture",
+    source_url: "https://agridata.ansd.sn/dataset/nombredefoirailsrgph",
+    status: "officiel",
+    methodology: "Somme des foirails inventoriés lors du RGPH-5",
+    limitations: "Niveau communal existe dans le RGPH-5 mais le fichier XLS ne fournit que le total national.",
+    date_accessed: "2026-08-15",
+  },
+  {
+    id: "menages_agricoles_2013",
+    label_fr: "Ménages agricoles 2013 (comparaison)",
+    label_wol: "Waa kër yu bëy 2013",
+    value: 755532,
+    unit: "ménages",
+    year: 2013,
+    geography_level: "national",
+    source: "ANSD",
+    publication: "RGPHAE 2013",
+    status: "officiel",
+    methodology: "Dénombrement RGPHAE 2013",
+    limitations: "",
+    date_accessed: "2026-08-15",
+  },
+];
 
 export function getIndicatorById(id: string): RegisteredIndicator | undefined {
   return NATIONAL_REGISTRY.find((i) => i.id === id);
