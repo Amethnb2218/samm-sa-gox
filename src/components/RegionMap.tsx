@@ -95,13 +95,13 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
                 const density = r.population / r.area_km2;
                 const maxDensity = 7841;
                 const norm = Math.min(density / maxDensity, 1);
-                const red = Math.round(220 + (140 - 220) * norm);
-                const green = Math.round(195 + (55 - 195) * norm);
-                const blue = Math.round(150 + (35 - 150) * norm);
+                const red = Math.round(200 + (27 - 200) * norm);
+                const green = Math.round(210 + (94 - 210) * norm);
+                const blue = Math.round(180 + (59 - 180) * norm);
                 const name = Object.entries(NAME_TO_CODE).find(([, c]) => c === r.code)?.[0] || "";
                 return [name, `rgb(${red},${green},${blue})`];
               }),
-              "#DCD8D0",
+              "#E8E4DC",
             ],
             "fill-opacity": 0.95,
           },
@@ -203,7 +203,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <span style={{ fontSize: "9px", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}>faible</span>
-          <div style={{ width: "40px", height: "4px", background: "linear-gradient(to right, #BFA97D, #A8422A)", borderRadius: "2px" }} />
+          <div style={{ width: "40px", height: "4px", background: "linear-gradient(to right, #C8D2B4, #1B5E3B)", borderRadius: "2px" }} />
           <span style={{ fontSize: "9px", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}>forte</span>
         </div>
       </div>

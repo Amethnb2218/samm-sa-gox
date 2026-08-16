@@ -87,16 +87,16 @@ export default function HeroMap({ onSelect }: HeroMapProps) {
           const density = code ? (REGIONS.find(r => r.code === code)?.population || 0) / (REGIONS.find(r => r.code === code)?.area_km2 || 1) : 0;
           const maxD = 7841;
           const norm = Math.min(density / maxD, 1);
-          const opacity = 0.35 + norm * 0.55;
+          const opacity = 0.4 + norm * 0.5;
 
           return polys.map((poly, pi) =>
             poly.map((ring, ri) => (
               <path
                 key={`${name}-${pi}-${ri}`}
                 d={coordsToPath(ring, bbox, W, H)}
-                fill={isHovered ? "var(--color-terracotta)" : `rgba(168, 66, 42, ${opacity})`}
+                fill={isHovered ? "var(--color-baobab)" : `rgba(27, 94, 59, ${opacity})`}
                 stroke="var(--color-bg)"
-                strokeWidth={isHovered ? "2" : "1"}
+                strokeWidth={isHovered ? "2.5" : "1.2"}
                 style={{ transition: "fill 0.2s ease, stroke-width 0.15s ease", cursor: "pointer" }}
                 onMouseEnter={() => setHovered(code || null)}
                 onMouseLeave={() => setHovered(null)}

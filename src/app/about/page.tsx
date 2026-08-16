@@ -21,7 +21,7 @@ export default function AboutPage() {
 
         <article>
           <header style={{ marginBottom: "40px" }}>
-            <span className="label-caps" style={{ color: "var(--color-terracotta)", marginBottom: "8px", display: "block" }}>
+            <span className="label-caps" style={{ color: "var(--color-terre)", marginBottom: "8px", display: "block" }}>
               Challenge 20 ans ANSD — 2026
             </span>
             <h1 style={{ fontSize: "28px", fontFamily: "var(--font-display)", fontWeight: 700, letterSpacing: "-0.02em" }}>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                   ].map((r) => (
                     <tr key={r.dim} style={{ borderTop: "1px solid var(--color-border)" }}>
                       <td style={{ padding: "10px 16px", fontWeight: 500 }}>{r.dim}</td>
-                      <td className="data-mono" style={{ textAlign: "center", padding: "10px 16px", color: "var(--color-terracotta)" }}>{r.poids}</td>
+                      <td className="data-mono" style={{ textAlign: "center", padding: "10px 16px", color: "var(--color-terre)" }}>{r.poids}</td>
                       <td style={{ padding: "10px 16px", color: "var(--color-text-secondary)" }}>{r.ind}</td>
                       <td style={{ padding: "10px 16px", fontSize: "11px", color: "var(--color-text-muted)" }}>{r.src}</td>
                     </tr>
@@ -171,8 +171,8 @@ export default function AboutPage() {
             <p style={{ fontSize: "13px", color: "var(--color-text-secondary)", lineHeight: 1.8 }}>
               {"Exemple : « Et si l'accès à l'eau progressait de +15 points ? » → recalcul de la dimension infrastructure de l'IDT = (eau + électricité) / 2 vs objectif 95%."}
             </p>
-            <div style={{ marginTop: "12px", padding: "12px 16px", backgroundColor: "var(--color-terracotta-bg)", borderRadius: "var(--radius-sm)", border: "1px solid rgba(168,66,42,0.15)" }}>
-              <p style={{ fontSize: "11px", color: "var(--color-terracotta)", fontWeight: 600 }}>
+            <div style={{ marginTop: "12px", padding: "12px 16px", backgroundColor: "var(--color-terre-bg)", borderRadius: "var(--radius-sm)", border: "1px solid rgba(160,75,45,0.12)" }}>
+              <p style={{ fontSize: "11px", color: "var(--color-terre)", fontWeight: 600 }}>
                 {"Ces résultats sont des simulations statistiques de Sàmm Sa Gox. Ils ne constituent pas des prévisions officielles."}
               </p>
             </div>

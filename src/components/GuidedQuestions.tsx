@@ -19,7 +19,7 @@ export default function GuidedQuestions({ lang, onSelect }: GuidedQuestionsProps
   return (
     <div className="card">
       <div className="card-header">
-        <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+        <span className="label-caps" style={{ color: "var(--color-terre)" }}>
           {lang === "wol" ? "Lan ngay begg a xaam ?" : "Explorer"}
         </span>
       </div>
@@ -46,7 +46,7 @@ export default function GuidedQuestions({ lang, onSelect }: GuidedQuestionsProps
             onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--color-bg-subtle)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
           >
-            <span style={{ width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--color-terracotta)", fontWeight: 700, backgroundColor: "var(--color-terracotta-bg)", borderRadius: "2px" }}>
+            <span style={{ width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--color-terre)", fontWeight: 700, backgroundColor: "var(--color-terre-bg)", borderRadius: "2px" }}>
               {q.icon}
             </span>
             <span style={{ color: "var(--color-text-secondary)" }}>{lang === "wol" ? q.wol : q.fr}</span>

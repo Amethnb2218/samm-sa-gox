@@ -59,7 +59,7 @@ export default function SearchBar({ lang, onSelect }: SearchBarProps) {
             outline: "none",
             transition: "border-color 0.15s ease",
           }}
-          onFocusCapture={(e) => { (e.target as HTMLInputElement).style.borderColor = "var(--color-terracotta-muted)"; }}
+          onFocusCapture={(e) => { (e.target as HTMLInputElement).style.borderColor = "var(--color-baobab-light)"; }}
           onBlurCapture={(e) => { (e.target as HTMLInputElement).style.borderColor = "var(--color-border)"; }}
         />
       </div>

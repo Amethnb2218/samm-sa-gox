@@ -64,7 +64,7 @@ export default function DashboardPage() {
             {!intel ? (
               <div>
                 {/* Demo suggestion */}
-                <div style={{ marginBottom: "16px", padding: "14px 20px", backgroundColor: "var(--color-terracotta-bg)", border: "1px solid rgba(168,66,42,0.15)", borderRadius: "var(--radius-md)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div style={{ marginBottom: "16px", padding: "14px 20px", backgroundColor: "var(--color-terre-bg)", border: "1px solid rgba(27,94,59,0.12)", borderRadius: "var(--radius-md)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <div>
                     <p style={{ fontSize: "13px", fontWeight: 500, color: "var(--color-text)" }}>
                       {lang === "wol" ? "Jëm ci Kaffrine ngir xool demo bi" : "Essayez avec Kaffrine pour une démonstration complète"}
@@ -95,8 +95,8 @@ export default function DashboardPage() {
                         padding: "12px 20px",
                         fontSize: "12px",
                         fontWeight: activeTab === t.key ? 600 : 400,
-                        color: activeTab === t.key ? "var(--color-terracotta)" : "var(--color-text-muted)",
-                        borderBottom: activeTab === t.key ? "2px solid var(--color-terracotta)" : "2px solid transparent",
+                        color: activeTab === t.key ? "var(--color-terre)" : "var(--color-text-muted)",
+                        borderBottom: activeTab === t.key ? "2px solid var(--color-terre)" : "2px solid transparent",
                         background: "none",
                         border: "none",
                         borderBottomWidth: "2px",
@@ -118,7 +118,7 @@ export default function DashboardPage() {
                     <div className="card" style={{ marginBottom: "16px" }}>
                       <div className="card-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                         <div>
-                          <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+                          <span className="label-caps" style={{ color: "var(--color-terre)" }}>
                             {lang === "wol" ? "Seetu gox gi" : "Diagnostic territorial"}
                           </span>
                           <h2 style={{ fontSize: "22px", fontFamily: "var(--font-display)", fontWeight: 600, marginTop: "4px" }}>
@@ -130,7 +130,7 @@ export default function DashboardPage() {
                         </div>
                         {intel.idt && (
                           <div style={{ textAlign: "right" }}>
-                            <span className="data-mono" style={{ fontSize: "28px", fontWeight: 700, color: "var(--color-terracotta)" }}>{intel.idt.total}</span>
+                            <span className="data-mono" style={{ fontSize: "28px", fontWeight: 700, color: "var(--color-terre)" }}>{intel.idt.total}</span>
                             <span style={{ fontSize: "14px", color: "var(--color-text-muted)" }}>/100</span>
                             <p style={{ fontSize: "10px", color: "var(--color-text-muted)", marginTop: "2px" }}>{lang === "wol" ? intel.idt.category_wol : intel.idt.category_fr}</p>
                           </div>
@@ -193,7 +193,7 @@ export default function DashboardPage() {
                       <div className="card" style={{ marginBottom: "16px" }}>
                         <div className="card-header">
                           <span className="label-caps">
-                            {lang === "wol" ? "Jafe-jafe yi gena am doole" : "Problemes prioritaires"}
+                            {lang === "wol" ? "Jafe-jafe yi gëna am doole" : "Problèmes prioritaires"}
                           </span>
                         </div>
                         <div className="card-body" style={{ padding: "0" }}>
@@ -213,7 +213,7 @@ export default function DashboardPage() {
                               </span>
                               <span style={{ fontSize: "13px", fontWeight: 500, flex: 1 }}>{lang === "wol" ? p.domain_wol : p.domain}</span>
                               <span className="data-mono" style={{ fontSize: "12px", color: "var(--color-text-muted)" }}>
-                                ecart {Math.abs(p.gap_pct)}%
+                                écart {Math.abs(p.gap_pct)}%
                               </span>
                             </div>
                           ))}
@@ -225,14 +225,14 @@ export default function DashboardPage() {
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div className="card">
                         <div className="card-header">
-                          <span className="label-caps" style={{ color: "var(--color-green)" }}>
+                          <span className="label-caps" style={{ color: "var(--color-baobab)" }}>
                             {lang === "wol" ? "Doole yi" : "Forces"}
                           </span>
                         </div>
                         <div className="card-body">
                           {(lang === "wol" ? intel.strengths_wol : intel.strengths_fr).map((s, i) => (
                             <p key={i} style={{ fontSize: "12px", color: "var(--color-text-secondary)", marginBottom: "6px", lineHeight: 1.5 }}>
-                              <span style={{ color: "var(--color-green)", marginRight: "6px" }}>+</span>{s}
+                              <span style={{ color: "var(--color-baobab)", marginRight: "6px" }}>+</span>{s}
                             </p>
                           ))}
                           {intel.strengths_fr.length === 0 && <p style={{ fontSize: "12px", color: "var(--color-text-muted)" }}>Aucune force majeure detectee</p>}
@@ -240,14 +240,14 @@ export default function DashboardPage() {
                       </div>
                       <div className="card">
                         <div className="card-header">
-                          <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+                          <span className="label-caps" style={{ color: "var(--color-terre)" }}>
                             {lang === "wol" ? "Jafe-jafe yi" : "Faiblesses"}
                           </span>
                         </div>
                         <div className="card-body">
                           {(lang === "wol" ? intel.weaknesses_wol : intel.weaknesses_fr).map((w, i) => (
                             <p key={i} style={{ fontSize: "12px", color: "var(--color-text-secondary)", marginBottom: "6px", lineHeight: 1.5 }}>
-                              <span style={{ color: "var(--color-terracotta)", marginRight: "6px" }}>-</span>{w}
+                              <span style={{ color: "var(--color-terre)", marginRight: "6px" }}>-</span>{w}
                             </p>
                           ))}
                           {intel.weaknesses_fr.length === 0 && <p style={{ fontSize: "12px", color: "var(--color-text-muted)" }}>Aucune faiblesse majeure detectee</p>}
@@ -262,7 +262,7 @@ export default function DashboardPage() {
                   <div className="fade-in">
                     <div className="card" style={{ marginBottom: "16px" }}>
                       <div className="card-header">
-                        <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+                        <span className="label-caps" style={{ color: "var(--color-terre)" }}>
                           {lang === "wol" ? "Gox yi mu melni" : "Territoires similaires"}
                         </span>
                         <p style={{ fontSize: "13px", color: "var(--color-text-secondary)", marginTop: "6px" }}>
@@ -292,7 +292,7 @@ export default function DashboardPage() {
                                 </p>
                               )}
                               {s.shared_strengths.length > 0 && (
-                                <p style={{ fontSize: "11px", color: "var(--color-green)", marginTop: "3px" }}>
+                                <p style={{ fontSize: "11px", color: "var(--color-baobab)", marginTop: "3px" }}>
                                   {lang === "wol" ? "Doole yu bokk : " : "Forces communes : "}{s.shared_strengths.join(", ")}
                                 </p>
                               )}
@@ -327,7 +327,7 @@ export default function DashboardPage() {
                                   <td style={{ padding: "10px 20px", fontWeight: 500 }}>{lang === "wol" ? g.domain_wol : g.domain}</td>
                                   <td className="data-mono" style={{ textAlign: "right", padding: "10px 12px" }}>{g.current}</td>
                                   <td className="data-mono" style={{ textAlign: "right", padding: "10px 12px" }}>{g.target}</td>
-                                  <td className="data-mono" style={{ textAlign: "right", padding: "10px 12px", color: g.gap_pct < 0 ? "var(--color-critical)" : "var(--color-green)", fontWeight: 600 }}>{g.gap_pct}%</td>
+                                  <td className="data-mono" style={{ textAlign: "right", padding: "10px 12px", color: g.gap_pct < 0 ? "var(--color-critical)" : "var(--color-baobab)", fontWeight: 600 }}>{g.gap_pct}%</td>
                                   <td style={{ textAlign: "center", padding: "10px 20px" }}>
                                     <span style={{
                                       fontSize: "9px",
@@ -336,7 +336,7 @@ export default function DashboardPage() {
                                       fontWeight: 600,
                                       borderRadius: "2px",
                                       backgroundColor: g.severity === "critique" ? "#FEF2F2" : g.severity === "alerte" ? "#FFF7ED" : "var(--color-green-bg)",
-                                      color: g.severity === "critique" ? "var(--color-critical)" : g.severity === "alerte" ? "var(--color-warning)" : "var(--color-green)",
+                                      color: g.severity === "critique" ? "var(--color-critical)" : g.severity === "alerte" ? "var(--color-warning)" : "var(--color-baobab)",
                                     }}>
                                       {g.severity.toUpperCase()}
                                     </span>
@@ -356,14 +356,14 @@ export default function DashboardPage() {
                   <div className="fade-in">
                     <div className="card" style={{ marginBottom: "16px" }}>
                       <div className="card-header">
-                        <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+                        <span className="label-caps" style={{ color: "var(--color-terre)" }}>
                           {lang === "wol" ? "Ndax lan? — Teral score bi" : "IDT — Indice expérimental Sàmm Sa Gox"}
                         </span>
                         <p style={{ fontSize: "11px", color: "var(--color-text-muted)", marginTop: "6px", fontStyle: "italic" }}>
                           {"Indice calculé par Sàmm Sa Gox à partir de données publiques. Ne constitue pas un indicateur officiel de l'ANSD."}
                         </p>
                         <div style={{ display: "flex", alignItems: "baseline", gap: "12px", marginTop: "12px" }}>
-                          <span className="data-mono" style={{ fontSize: "36px", fontWeight: 700, color: "var(--color-terracotta)", lineHeight: 1 }}>{intel.idt.total}</span>
+                          <span className="data-mono" style={{ fontSize: "36px", fontWeight: 700, color: "var(--color-terre)", lineHeight: 1 }}>{intel.idt.total}</span>
                           <span style={{ fontSize: "15px", color: "var(--color-text-muted)" }}>/ {intel.idt.max_possible} — {lang === "wol" ? intel.idt.category_wol : intel.idt.category_fr}</span>
                         </div>
                       </div>
@@ -372,12 +372,12 @@ export default function DashboardPage() {
                           <div key={i} style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: i < intel.idt!.contributions.length - 1 ? "1px solid var(--color-border)" : "none" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                               <span style={{ fontSize: "13px", fontWeight: 600 }}>{lang === "wol" ? c.factor_wol : c.factor}</span>
-                              <span className="data-mono" style={{ fontSize: "14px", fontWeight: 700, color: c.direction === "positive" ? "var(--color-green)" : "var(--color-terracotta)" }}>
+                              <span className="data-mono" style={{ fontSize: "14px", fontWeight: 700, color: c.direction === "positive" ? "var(--color-baobab)" : "var(--color-terre)" }}>
                                 {c.points}/25
                               </span>
                             </div>
                             <div className="progress-bar" style={{ marginBottom: "8px" }}>
-                              <div className="progress-fill" style={{ width: `${(c.points / 25) * 100}%`, backgroundColor: c.direction === "positive" ? "var(--color-green)" : "var(--color-terracotta)" }} />
+                              <div className="progress-fill" style={{ width: `${(c.points / 25) * 100}%`, backgroundColor: c.direction === "positive" ? "var(--color-baobab)" : "var(--color-terre)" }} />
                             </div>
                             <p style={{ fontSize: "12px", color: "var(--color-text-secondary)", marginBottom: "4px" }}>{lang === "wol" ? c.detail_wol : c.detail_fr}</p>
                             <p className="label-caps" style={{ fontSize: "9px" }}>Source : {c.source}</p>
@@ -403,7 +403,7 @@ export default function DashboardPage() {
                   <div className="fade-in">
                     <div className="card" style={{ marginBottom: "16px" }}>
                       <div className="card-header">
-                        <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+                        <span className="label-caps" style={{ color: "var(--color-terre)" }}>
                           {lang === "wol" ? "Su... ? — Scenarios" : "Et si... ? — Simulation"}
                         </span>
                         <p style={{ fontSize: "12px", color: "var(--color-text-muted)", marginTop: "6px" }}>
@@ -421,9 +421,9 @@ export default function DashboardPage() {
                                 width: "100%",
                                 textAlign: "left",
                                 padding: "12px 16px",
-                                border: activeScenario === s.id ? "2px solid var(--color-terracotta)" : "1px solid var(--color-border)",
+                                border: activeScenario === s.id ? "2px solid var(--color-terre)" : "1px solid var(--color-border)",
                                 borderRadius: "var(--radius-sm)",
-                                backgroundColor: activeScenario === s.id ? "var(--color-terracotta-bg)" : "transparent",
+                                backgroundColor: activeScenario === s.id ? "var(--color-terre-bg)" : "transparent",
                                 cursor: "pointer",
                                 fontSize: "13px",
                                 fontWeight: 500,
@@ -437,9 +437,9 @@ export default function DashboardPage() {
                       </div>
                       {scenarioResult && (
                         <div style={{ borderTop: "1px solid var(--color-border)" }}>
-                          <div style={{ padding: "16px 20px", backgroundColor: "var(--color-terracotta-bg)" }}>
+                          <div style={{ padding: "16px 20px", backgroundColor: "var(--color-terre-bg)" }}>
                             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
-                              <span style={{ fontSize: "10px", fontFamily: "var(--font-mono)", fontWeight: 700, color: "var(--color-terracotta)", padding: "2px 8px", border: "1px solid var(--color-terracotta)", borderRadius: "2px" }}>SIMULATION</span>
+                              <span style={{ fontSize: "10px", fontFamily: "var(--font-mono)", fontWeight: 700, color: "var(--color-terre)", padding: "2px 8px", border: "1px solid var(--color-terre)", borderRadius: "2px" }}>SIMULATION</span>
                             </div>
                             <p style={{ fontSize: "13px", lineHeight: 1.7, fontFamily: "var(--font-display)" }}>
                               {lang === "wol" ? scenarioResult.summary_wol : scenarioResult.summary_fr}
@@ -450,7 +450,7 @@ export default function DashboardPage() {
                               <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: i < scenarioResult.scenario.impacts.length - 1 ? "1px solid var(--color-border)" : "none" }}>
                                 <span style={{ fontSize: "12px" }}>{lang === "wol" ? imp.indicator_wol : imp.indicator_fr}</span>
                                 <span className="data-mono" style={{ fontSize: "12px" }}>
-                                  {imp.before} → <strong style={{ color: imp.change_pct > 0 ? "var(--color-green)" : "var(--color-critical)" }}>{imp.after}</strong> {imp.unit}
+                                  {imp.before} → <strong style={{ color: imp.change_pct > 0 ? "var(--color-baobab)" : "var(--color-critical)" }}>{imp.after}</strong> {imp.unit}
                                 </span>
                               </div>
                             ))}
@@ -472,7 +472,7 @@ export default function DashboardPage() {
                   <div className="fade-in">
                     <div className="card">
                       <div className="card-header">
-                        <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
+                        <span className="label-caps" style={{ color: "var(--color-terre)" }}>
                           20 ans — {intel.diagnostic.name}
                         </span>
                         <p style={{ fontSize: "14px", fontFamily: "var(--font-display)", marginTop: "8px", lineHeight: 1.6 }}>
@@ -484,7 +484,7 @@ export default function DashboardPage() {
                           <div key={ind.code} style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: idx < intel.timeline!.indicators.length - 1 ? "1px solid var(--color-border)" : "none" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
                               <span style={{ fontSize: "13px", fontWeight: 500 }}>{lang === "wol" ? ind.label_wol : ind.label_fr}</span>
-                              <span className="data-mono" style={{ fontSize: "12px", color: "var(--color-green)", fontWeight: 600 }}>
+                              <span className="data-mono" style={{ fontSize: "12px", color: "var(--color-baobab)", fontWeight: 600 }}>
                                 {lang === "wol" ? ind.change_label_wol : ind.change_label_fr}
                               </span>
                             </div>
@@ -495,9 +495,9 @@ export default function DashboardPage() {
                                 <div key={i} style={{
                                   textAlign: "center",
                                   padding: "8px 4px",
-                                  backgroundColor: i === ind.data.length - 1 ? "var(--color-terracotta-bg)" : "var(--color-bg-subtle)",
+                                  backgroundColor: i === ind.data.length - 1 ? "var(--color-terre-bg)" : "var(--color-bg-subtle)",
                                   borderRadius: "var(--radius-sm)",
-                                  border: i === ind.data.length - 1 ? "1px solid var(--color-terracotta)20" : "1px solid var(--color-border)",
+                                  border: i === ind.data.length - 1 ? "1px solid var(--color-terre)20" : "1px solid var(--color-border)",
                                   borderStyle: isProjected ? "dashed" : "solid",
                                   opacity: isProjected ? 0.75 : 1,
                                 }}>
@@ -550,37 +550,46 @@ function NationalView({ lang, nationalTimeline }: { lang: Lang; nationalTimeline
   return (
     <div className="card fade-in">
       <div className="card-header">
-        <span className="label-caps" style={{ color: "var(--color-terracotta)" }}>
-          {lang === "wol" ? "Senegaal — 20 at ANSD" : "Senegal — 20 ans ANSD"}
+        <span className="label-caps" style={{ color: "var(--color-terre)" }}>
+          {lang === "wol" ? "Senegaal — 20 at ANSD" : "Sénégal — 20 ans ANSD"}
         </span>
         <h2 style={{ fontSize: "20px", fontFamily: "var(--font-display)", fontWeight: 600, marginTop: "6px" }}>
-          {lang === "wol" ? "Jem ci gox gi ngir xool seetu bi" : "Selectionnez une region pour commencer"}
+          {lang === "wol" ? "Jëm ci gox gi ngir xool seetu bi" : "Sélectionnez une région pour commencer"}
         </h2>
         <p style={{ fontSize: "13px", color: "var(--color-text-muted)", marginTop: "6px" }}>
           {lang === "wol"
-            ? "Teral nataalu ANSD ci 20 at yi — cliquez ci kaart bi walla seeke ci kaw"
-            : "Cliquez sur la carte ou utilisez la recherche pour selectionner un territoire."}
+            ? "Cliquez ci kaart bi walla seeke ci kaw"
+            : "Cliquez sur la carte ou utilisez la recherche pour sélectionner un territoire."}
         </p>
       </div>
       <div className="card-body">
-        <span className="label-caps" style={{ display: "block", marginBottom: "16px" }}>
-          {lang === "wol" ? "Nataal Senegal — 20 at" : "Evolution nationale — 20 ans"}
-        </span>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+          <span className="label-caps">
+            {lang === "wol" ? "Nataal Senegaal — 20 at" : "Évolution nationale — 20 ans"}
+          </span>
+          <div style={{ display: "flex", gap: "12px", fontSize: "9px", color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}>
+            <span>● Observé</span>
+            <span style={{ opacity: 0.6 }}>○ Estimé/Projeté</span>
+          </div>
+        </div>
         {nationalTimeline.map((ind) => (
           <div key={ind.code} style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid var(--color-border)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
               <span style={{ fontSize: "13px", fontWeight: 500 }}>{lang === "wol" ? ind.label_wol : ind.label_fr}</span>
-              <span className="data-mono" style={{ fontSize: "12px", color: ind.change_20y >= 0 && ind.code !== "pauvrete" ? "var(--color-green)" : "var(--color-terracotta)", fontWeight: 600 }}>
+              <span className="data-mono" style={{ fontSize: "12px", color: ind.change_20y >= 0 && ind.code !== "pauvrete" ? "var(--color-baobab)" : "var(--color-terre)", fontWeight: 600 }}>
                 {lang === "wol" ? ind.change_label_wol : ind.change_label_fr}
               </span>
             </div>
             <div style={{ display: "flex", gap: "8px", marginTop: "8px", alignItems: "center" }}>
-              {ind.data.map((pt, i) => (
-                <div key={i} style={{ flex: 1, textAlign: "center" }}>
-                  <div className="label-caps" style={{ fontSize: "9px" }}>{pt.year}</div>
-                  <div className="data-mono" style={{ fontSize: "12px", fontWeight: 600, marginTop: "2px" }}>{pt.value}</div>
-                </div>
-              ))}
+              {ind.data.map((pt, i) => {
+                const isEstimated = pt.status === "projete" || pt.status === "estime";
+                return (
+                  <div key={i} style={{ flex: 1, textAlign: "center", opacity: isEstimated ? 0.6 : 1 }}>
+                    <div className="label-caps" style={{ fontSize: "9px" }}>{pt.year}</div>
+                    <div className="data-mono" style={{ fontSize: "12px", fontWeight: 600, marginTop: "2px", borderBottom: isEstimated ? "1px dashed var(--color-text-muted)" : "none", display: "inline-block" }}>{pt.value}</div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         ))}

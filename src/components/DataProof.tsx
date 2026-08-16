@@ -36,7 +36,7 @@ export default function DataProof({ proof, children }: DataProofProps) {
       <span
         onClick={() => setOpen(!open)}
         style={{ cursor: "pointer", borderBottom: "1px dashed var(--color-border-strong)", transition: "border-color 0.15s" }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "var(--color-terracotta)"; }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "var(--color-terre)"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "var(--color-border-strong)"; }}
       >
         {children}
