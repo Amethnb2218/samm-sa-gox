@@ -208,7 +208,7 @@ export default function RegionMap({ selectedCode, onSelect, lang = "fr" }: Regio
         </div>
       </div>
 
-      <div style={{ position: "relative", height: "380px" }}>
+      <div style={{ position: "relative", height: "380px", backgroundColor: "var(--color-bg-subtle)" }}>
         {hoveredRegion && (
           <div style={{
             position: "absolute",
